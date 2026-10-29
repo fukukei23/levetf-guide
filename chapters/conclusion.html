@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3行の結論をほどく — レバレッジETF ガイド</title>
+<meta name="description" content="レバレッジでCAGRは上がるのにSharpeが変わらない理由、3倍が2倍の代替にならない理由、σ<√(2μ/L)の読み方を平易に解説。最後に最も勝てたパターンを提示します。">
+<meta property="og:title" content="3行の結論をほどく — レバレッジETF ガイド">
+<meta property="og:description" content="レバレッジでCAGRは上がるのにSharpeが変わらない理由、3倍が2倍の代替にならない理由、σ<√(2μ/L)の読み方を平易に解説。最後に最も勝てたパターンを提示します。">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="reading" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="../index.html">📈 レバレッジETF ガイド</a>
+  <nav class="topnav" aria-label="サイト内">
+    <a href="../index.html">目次</a>
+    <a href="../index.html#downloads">PDF</a>
+    <button id="searchOpen" aria-label="検索を開く" aria-haspopup="dialog" aria-controls="searchModal" aria-expanded="false">🔍 <span class="btn-text">検索</span> <kbd>Ctrl K</kbd></button>
+    <button id="themeToggle" aria-label="テーマ切替">🌓</button>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar"><h2>この章の目次</h2><ol><li><a href="#sec1">1行目：リターンは増えるが、効率は変わらない</a></li><li><a href="#sec2">レバレッジは、リターンを何倍にするのか</a></li><li><a href="#sec3">2行目：3倍は2倍の代替にならない</a></li><li><a href="#sec4">3行目：σ &lt; √(2μ/L) の読み方</a></li><li><a href="#sec5">積みレバを入れると、どこが変わるか</a></li><li><a href="#sec6">1番勝てるパターン</a></li></ol><div class="chapter-nav"><a href="myths.html">← 第11章 よくある誤解</a><a href="glossary.html">第13章 用語集 →</a></div></aside>
+<main id="main">
+
+<h1 class="page">第12章 3行の結論をほどく</h1>
+<p class="lead">トップページの3行を、数字と平易な言葉に分解します。最後に「では何が一番勝てるのか」まで書きます。</p>
+<h2 id="sec1">1行目：リターンは増えるが、効率は変わらない<a class="anchor" href="#sec1" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>Sharpe（シャープレシオ）は「値動き1単位あたり、どれだけ余分に稼いだか」を表す数字です。式は <code>(リターン − 安全資産の利子) ÷ 値動きの荒さ</code>。ただの割り算です。</p>
+<p><a class="term" href="glossary.html#t-leverage">レバレッジ</a>をL倍にすると、分子（リターン）も分母（値動き）もほぼL倍になります。割り算は、両方を同じ数で掛けても答えが変わらない。だからSharpeはほぼ動きません。</p>
+<table><thead><tr><th class="">指数</th><th class="">レバ</th><th class="num">CAGR</th><th class="num">ボラティリティ</th><th class="num">Sharpe</th><th class="num">最大DD</th><th class="num">Calmar</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="">1x</td><td class="num">+10.9%</td><td class="num">17.1%</td><td class="num">0.46</td><td class="num">55.3%</td><td class="num">0.20</td></tr><tr><td class="">S&amp;P500</td><td class="">2x</td><td class="num">+13.4%</td><td class="num">34.2%</td><td class="num">0.42</td><td class="num">87.5%</td><td class="num">0.15</td></tr><tr><td class="">S&amp;P500</td><td class="">3x</td><td class="num">+13.4%</td><td class="num">51.4%</td><td class="num">0.43</td><td class="num">97.9%</td><td class="num">0.14</td></tr><tr><td class="">ナスダック100</td><td class="">1x</td><td class="num">+15.3%</td><td class="num">25.8%</td><td class="num">0.53</td><td class="num">82.6%</td><td class="num">0.19</td></tr><tr><td class="">ナスダック100</td><td class="">2x</td><td class="num">+19.8%</td><td class="num">51.7%</td><td class="num">0.53</td><td class="num">98.7%</td><td class="num">0.20</td></tr><tr><td class="">ナスダック100</td><td class="">3x</td><td class="num">+17.3%</td><td class="num">77.5%</td><td class="num">0.54</td><td class="num">99.975%</td><td class="num">0.17</td></tr><tr><td class="">半導体（SOX）</td><td class="">1x</td><td class="num">+15.9%</td><td class="num">37.9%</td><td class="num">0.47</td><td class="num">86.2%</td><td class="num">0.18</td></tr><tr><td class="">半導体（SOX）</td><td class="">2x</td><td class="num">+13.2%</td><td class="num">75.9%</td><td class="num">0.49</td><td class="num">99.8%</td><td class="num">0.13</td></tr><tr><td class="">半導体（SOX）</td><td class="">3x</td><td class="num">-3.6%</td><td class="num">113.8%</td><td class="num">0.50</td><td class="num">99.999%</td><td class="num">-0.04</td></tr></tbody></table>
+<p>Sharpeは0.42〜0.54でほぼ横並び。いっぽう最大DDは55%→98%へと大きく増えます。「効率は同じ、痛みだけ増える」とはこのことです。</p>
+<p>厳密には、指数によって上下します。減価とコストがあるからで、S&amp;P500は0.46→0.42→0.43、半導体は0.47→0.49→0.50。タダで倍率が上がるわけではありません。</p>
+<div class="callout">レバレッジはメガネの度数に似ています。景色は大きく見えますが、見える情報は増えません。度数を上げるほど、歪み（減価）も増えます。</div>
+<h2 id="sec2">レバレッジは、リターンを何倍にするのか<a class="anchor" href="#sec2" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>よくある誤解が「1倍が10年で3倍なら、2倍は6倍、3倍は9倍」というものです。答えは<b>ノー</b>です。</p>
+<p>1xが10年で2.7〜3.3倍になった局面だけを抽出して、同じ期間の2x・3xを数えました。</p>
+<table><thead><tr><th class="">指数</th><th class="num">局面数</th><th class="num">2x 中央（最小–最大）</th><th class="num">3x 中央（最小–最大）</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="num">60</td><td class="num">4.19（2.47–6.56）</td><td class="num">4.52（1.94–11.76）</td></tr><tr><td class="">ナスダック100</td><td class="num">69</td><td class="num">4.20（1.41–6.16）</td><td class="num">4.03（0.21–7.76）</td></tr><tr><td class="">半導体（SOX）</td><td class="num">10</td><td class="num">0.59（0.48–4.23）</td><td class="num">0.01（0.01–2.70）</td></tr></tbody></table>
+<p class="caption">10年一括。開始日を1か月ずつずらし、1xの倍率が2.7〜3.3倍に収まった窓のみ。</p>
+<p>中央値は2xで4.2倍前後、3xで4.0〜4.5倍。素朴な6倍・9倍には程遠く、2xと3xもほぼ同じです。S&amp;P500なら500万円が、1x 1,500万円・2x 約2,100万円・3x 約2,260万円。</p>
+<p>理由は2つあります。①<b>調達金利</b>（3倍なら2倍分の利息を10年分支払う）②<b><a class="term" href="glossary.html#t-vol-decay">ボラティリティ減価</a></b>。式にするとこうです。</p>
+<div class="formula">log(倍率_L) ≈ L×log(倍率_1) - 0.5×L(L-1)×σ²×年数 - (L-1)×金利×年数</div>
+<p>S&amp;P500（σ=17%、金利4.5%、10年、1x=3倍）で計算すると、2xは4.3倍、3xは4.6倍。実測の4.19倍・4.52倍とほぼ一致します。<b>「6倍・9倍」の夢は、金利と減価で消える</b>ということです。</p>
+<div class="callout warn">幅も広い。同じ「1xが3倍」でも、S&amp;P500の2xは2.47〜6.56倍、3xは1.94〜11.76倍でした。極端な例では、SOXが1994年9月〜2004年8月に3.1倍になった同じ10年で、3xは0.01倍（−99%）です。指数が3倍でも、3倍が元本割れする。</div>
+<p>そして「痛みに耐えれば効率が上がる」わけでもありません。Sharpeが同じとは、<b>リスク1単位あたりの見返りが同じ</b>という意味です。増えるのは金額の振れ幅であって、効率ではありません。痛みは、大きく張ったことの代償です。</p>
+<h2 id="sec3">2行目：3倍は2倍の代替にならない<a class="anchor" href="#sec3" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>2倍と3倍を並べると、3倍のリターンは2倍と同じか、それ以下です。なのに最大DDは必ず重くなります。</p>
+<table><thead><tr><th class="">指数</th><th class="num">2x CAGR</th><th class="num">3x CAGR</th><th class="num">2x 最大DD</th><th class="num">3x 最大DD</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="num">+13.4%</td><td class="num">+13.4%</td><td class="num">87.5%</td><td class="num">97.9%</td></tr><tr><td class="">ナスダック100</td><td class="num">+19.8%</td><td class="num">+17.3%</td><td class="num">98.7%</td><td class="num">99.975%</td></tr><tr><td class="">半導体（SOX）</td><td class="num">+13.2%</td><td class="num">-3.6%</td><td class="num">99.8%</td><td class="num">99.999%</td></tr></tbody></table>
+<p>理由は減価の式にあります。減価の係数は <code>0.5×L×(L−1)</code>。L=2なら1、L=3なら3です。倍率を1つ上げるだけで、削られる力が3倍になります。</p>
+<p>30年積立の勝率でも、2倍が98〜100%、3倍が82〜90%。「3倍は2倍の上位版」ではなく「別の商品」です。</p>
+<p>ただし、一方向に上がり続けた期間では3倍が圧勝します（1990年代のSOXは10年で14.6倍）。だから「使うな」ではなく、<b>「2倍の代わりにはならない」</b>が正確なところです。</p>
+<h2 id="sec4">3行目：σ &lt; √(2μ/L) の読み方<a class="anchor" href="#sec4" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>この式は「値動きの荒さ（σ）が、この線を超えたら、そのレバレッジは1倍に負ける」という意味です。μは指数が稼ぐ力、Lは倍率。</p>
+<p>導出は3行で終わります。</p>
+<ol>
+<li>L倍の<a class="term" href="glossary.html#t-elog">期待対数リターン</a>は <code>Lμ − 0.5L(L−1)σ²</code>（μは1xの対数成長率、コストを除く）</li>
+<li>1倍は <code>μ</code></li>
+<li>差を取ると <code>(L−1)(μ − 0.5Lσ²)</code>。これが正になる条件が <code>σ² &lt; 2μ/L</code></li>
+</ol>
+<table><thead><tr><th class="">指数</th><th class="num">1x CAGR</th><th class="num">σ（実現）</th><th class="num">σ*（3倍の閾値）</th><th class="num">余裕（σ*−σ）</th><th class="num">判定</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="num">10.9%</td><td class="num">17.1%</td><td class="num">26.3%</td><td class="num">+9.2%</td><td class="num">余裕あり</td></tr><tr><td class="">ナスダック100</td><td class="num">15.3%</td><td class="num">25.8%</td><td class="num">30.8%</td><td class="num">+5.0%</td><td class="num">ぎりぎり</td></tr><tr><td class="">半導体（SOX）</td><td class="num">15.9%</td><td class="num">37.9%</td><td class="num">31.3%</td><td class="num">-6.6%</td><td class="num">明確に不利</td></tr></tbody></table>
+<p>S&amp;P500は余裕、ナスダック100はぎりぎり、SOXは明確に不利。この1行で3指数の答えが分かれます。</p>
+<p>金利も効きます。<a class="term" href="glossary.html#t-financing">調達コスト</a>を引くと実効のμが下がるので、閾値も下がります。0%と4.5%で3倍のCAGRは23.8%→13.2%（<a href="threshold.html">第02章</a>）。</p>
+<p>実務ではμに1倍の対数成長率 ln(1+CAGR) を使います。CAGRそのものより小さいので、閾値は低め（厳しめ）に出ます。安全側の判定です。</p>
+<h2 id="sec5">積みレバを入れると、どこが変わるか<a class="anchor" href="#sec5" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>ここまでの3行は<b>一括投資</b>の話です。毎月積み立てると、同じ指数・同じ倍率でも順位が変わります。理由は単純で、積立は<b>暴落のあとに必ず買う</b>からです。3倍は下げが深いぶん、安く拾える量が増えます。</p>
+<table><thead><tr><th class="">指数</th><th class="num">期間</th><th class="num">1x 中央 / 元本割れ</th><th class="num">2x 中央 / 元本割れ</th><th class="num">3x 中央 / 元本割れ</th><th class="num">3xが2xに勝つ割合</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="num">10年</td><td class="num">1.93倍 / 2%</td><td class="num">2.53倍 / 6%</td><td class="num">2.90倍 / 12%</td><td class="num">61%</td></tr><tr><td class="">S&amp;P500</td><td class="num">20年</td><td class="num">3.41倍 / 0%</td><td class="num">5.25倍 / 0%</td><td class="num">6.08倍 / 7%</td><td class="num">69%</td></tr><tr><td class="">S&amp;P500</td><td class="num">30年</td><td class="num">5.51倍 / 0%</td><td class="num">10.79倍 / 0%</td><td class="num">12.42倍 / 0%</td><td class="num">64%</td></tr><tr><td class="">ナスダック100</td><td class="num">10年</td><td class="num">2.26倍 / 3%</td><td class="num">3.92倍 / 20%</td><td class="num">5.43倍 / 27%</td><td class="num">62%</td></tr><tr><td class="">ナスダック100</td><td class="num">20年</td><td class="num">3.74倍 / 0%</td><td class="num">4.24倍 / 1%</td><td class="num">4.88倍 / 21%</td><td class="num">57%</td></tr><tr><td class="">ナスダック100</td><td class="num">30年</td><td class="num">11.07倍 / 0%</td><td class="num">23.65倍 / 0%</td><td class="num">23.27倍 / 0%</td><td class="num">49%</td></tr><tr><td class="">半導体（SOX）</td><td class="num">10年</td><td class="num">1.72倍 / 15%</td><td class="num">2.15倍 / 40%</td><td class="num">2.35倍 / 42%</td><td class="num">41%</td></tr><tr><td class="">半導体（SOX）</td><td class="num">20年</td><td class="num">4.79倍 / 0%</td><td class="num">8.72倍 / 0%</td><td class="num">10.07倍 / 4%</td><td class="num">69%</td></tr><tr><td class="">半導体（SOX）</td><td class="num">30年</td><td class="num">13.58倍 / 0%</td><td class="num">24.93倍 / 0%</td><td class="num">24.84倍 / 0%</td><td class="num">27%</td></tr></tbody></table>
+<p class="caption">元本割れは「倍率が1.0未満だった窓の割合」。開始月を1か月ずつずらして全通り。</p>
+<ul>
+<li><b>変わる：3xは2xに劣らない場面がある。</b>10年の中央値は3指数すべてで3xが2xを上回りました（2.90 vs 2.53、5.43 vs 3.92、2.35 vs 2.15）。S&amp;P500は30年でも3xが上（12.42 vs 10.79）。</li>
+<li><b>変わらない：代償は元本割れの確率。</b>10年で見ると、2xの元本割れは6〜20%、3xは12〜27%。SOXに至っては2xが40%、3xが42%で、そもそも10年では分が悪い。</li>
+<li><b>変わる：Sharpeの話は使えなくなる。</b>拠出が時間で変わるので、Sharpeの分母（値動き）が一定になりません。代わりに見るのは「元本割れ確率」と「下位10%」です。</li>
+<li><b>変わらない：σ*の判定。</b>あれは「一括で持ったとき長期で負けるか」の式。積立は負けを消しませんが、時間をかけて平均単価を下げるので、確率の形が変わります。</li>
+</ul>
+<p>SOXの10年は特に分かりやすい例です。3xの中央値は2xより高いのに、3xが2xに勝つのは41%しかない。つまり<b>勝つときは大きく勝ち、負ける回数はもっと多い</b>。中央値だけ見ると誤解します。</p>
+<div class="callout">積立は「3倍が2倍に勝つ」ように見えますが、勝率が上がったわけではありません。負けたときの額が大きくなり、勝ったときの額も大きくなっただけ、という面があります。30年なら元本割れはどれも0%ですが、途中のDDは3xが圧倒的に深い。</div>
+<h2 id="sec6">1番勝てるパターン<a class="anchor" href="#sec6" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>判定基準を先に決めます。「10年で元本を割りにくい（下位10%が1.0倍以上）」＋「中央値が高い」。開始年を1年ずつずらして全通り試しました（10年・各指数の全開始年）。</p>
+<p>基準を「負けない」に置くか「勝ち額」に置くかで答えが変わります。勝ち額なら3x系（NDXは中央6.43倍）ですが、下位10%は0.56倍まで沈みます。ここでは<b>負けない</b>を優先しました。</p>
+<table><thead><tr><th class="">指数</th><th class="">戦略</th><th class="num">中央値</th><th class="num">下位10%</th><th class="num">最悪</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="">2x 素</td><td class="num">2.50倍</td><td class="num">1.18倍</td><td class="num">0.44倍</td></tr><tr><td class="">S&amp;P500</td><td class="">3x 素</td><td class="num">2.80倍</td><td class="num">0.91倍</td><td class="num">0.21倍</td></tr><tr><td class="">S&amp;P500</td><td class="">2x + DD20%倍額</td><td class="num">2.47倍</td><td class="num">1.13倍</td><td class="num">0.49倍</td></tr><tr><td class="">S&amp;P500</td><td class="">3x + DD20%倍額</td><td class="num">2.74倍</td><td class="num">0.88倍</td><td class="num">0.24倍</td></tr><tr><td class="">S&amp;P500</td><td class="">2x + DD20 + 初期100万円</td><td class="num">2.89倍</td><td class="num">1.28倍</td><td class="num">0.46倍</td></tr><tr><td class="">ナスダック100</td><td class="">2x 素</td><td class="num">3.98倍</td><td class="num">0.88倍</td><td class="num">0.52倍</td></tr><tr><td class="">ナスダック100</td><td class="">3x 素</td><td class="num">5.55倍</td><td class="num">0.45倍</td><td class="num">0.10倍</td></tr><tr><td class="">ナスダック100</td><td class="">2x + DD20%倍額</td><td class="num">4.38倍</td><td class="num">0.94倍</td><td class="num">0.48倍</td></tr><tr><td class="">ナスダック100</td><td class="">3x + DD20%倍額</td><td class="num">6.43倍</td><td class="num">0.56倍</td><td class="num">0.11倍</td></tr><tr><td class="">ナスダック100</td><td class="">2x + DD20 + 初期100万円</td><td class="num">5.75倍</td><td class="num">0.97倍</td><td class="num">0.68倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">2x 素</td><td class="num">1.97倍</td><td class="num">0.45倍</td><td class="num">0.21倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">3x 素</td><td class="num">1.95倍</td><td class="num">0.24倍</td><td class="num">0.10倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">2x + DD20%倍額</td><td class="num">1.97倍</td><td class="num">0.48倍</td><td class="num">0.23倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">3x + DD20%倍額</td><td class="num">1.95倍</td><td class="num">0.26倍</td><td class="num">0.11倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">2x + DD20 + 初期100万円</td><td class="num">1.81倍</td><td class="num">0.44倍</td><td class="num">0.21倍</td></tr></tbody></table>
+<ul>
+<li>S&amp;P500：<b>2x + DD20 + 初期100万円</b>が中央2.89倍・下位10%1.28倍で最良。ただし素の2x（2.50／1.18）との差は主に「初期100万円を先に入れた」効果で、DD20単体では2.47／1.13とほぼ同等でした。</li>
+<li>ナスダック100：同じ組み合わせが中央5.75倍・最悪0.68倍で最良。こちらはDD20単体でも3.98→4.38と改善します。</li>
+<li>SOX：<b>2x + DD20</b>（1.97倍／下位10%0.48倍）。初期100万円を足すと1.81倍に下がります。高値づかみになるためです。</li>
+</ul>
+<p>総合すると、土台は<b>「2倍 ＋ 高値から20%下がった月は倍額」</b>。初期資金の上乗せはS&amp;P500とナスダック100では効きますが、SOXでは逆効果。しかも上乗せの効果は「早く大きく入った」ことに由来するので、相場観の優位ではありません。</p>
+<h3>運用に落とすと</h3>
+<ul>
+<li>毎月3万円を2倍（SSO、QLD など）で積立。SPXLは3倍なので使わない。</li>
+<li>指数が直近高値から20%下がった月は6万円。</li>
+<li>そのための現金を別枠で最低72万円（1年分）。</li>
+<li>3倍は使わない。使うなら余剰資金の一部だけ。</li>
+</ul>
+<div class="callout warn">これは1970-2026年の1つの相場を後から数えた結果です。戦略8通り×3指数、さらに10年の窓を全開始年で見ているので、偶然の勝ちは必ず混ざります。「下位10%が1.28倍」も保証ではありません。</div>
+<nav class="nav"><a href="myths.html"><span class="dir">前の章</span>← 第11章 よくある誤解</a><a href="glossary.html" style="text-align:right"><span class="dir">次の章</span>第13章 用語集 →</a></nav>
+</main>
+</div>
+<footer>
+  <p>本ガイドは分析結果であり、投資助言ではありません。</p>
+  <p style="margin-top:6px">
+    <a href="../index.html">目次</a> ・
+    <a href="../downloads/levetf_report_ja.pdf">一次資料（PDF）</a> ・
+    <a href="../downloads/levetf_onepager_ja_en.pdf">1枚要約</a> ・
+    <a href="../downloads/levetf_slides_ja.pdf">講義スライド</a>
+  </p>
+</footer>
+<button class="to-top" aria-label="ページ先頭へ">↑</button>
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="キーワード（例: 減価、SOX、Calmar）" aria-label="検索語">
+    <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+    <div class="search-hint">Esc で閉じる ・ / でも開けます</div>
+  </div>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

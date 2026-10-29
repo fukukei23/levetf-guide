@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>レバレッジ実践 — レバレッジETF ガイド</title>
+<meta name="description" content="2xはB&amp;H、3xはラダー。TQQQ/QLD/SSO/SPXLの売買ルールを実データで比較します。">
+<meta property="og:title" content="レバレッジ実践 — レバレッジETF ガイド">
+<meta property="og:description" content="2xはB&amp;H、3xはラダー。TQQQ/QLD/SSO/SPXLの売買ルールを実データで比較します。">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="reading" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="../index.html">📈 レバレッジETF ガイド</a>
+  <nav class="topnav" aria-label="サイト内">
+    <a href="../index.html">目次</a>
+    <a href="../index.html#downloads">PDF</a>
+    <button id="searchOpen" aria-label="検索を開く" aria-haspopup="dialog" aria-controls="searchModal" aria-expanded="false">🔍 <span class="btn-text">検索</span> <kbd>Ctrl K</kbd></button>
+    <button id="themeToggle" aria-label="テーマ切替">🌓</button>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar"><h2>この章の目次</h2><ol><li><a href="#sec1">結論：3xはラダー、2xはB&amp;H</a></li><li><a href="#sec2">売買ルールの型</a></li><li><a href="#sec3">ナスダック100：TQQQ（3x）とQLD（2x）</a></li><li><a href="#sec4">S&amp;P500：SPXL（3x）とSSO（2x）</a></li><li><a href="#sec5">10年・20年・30年で見たS&amp;P500 3x</a></li><li><a href="#sec6">売却率で変わる挙動</a></li><li><a href="#sec7">IRRと最大DDだけで足りるのか</a></li><li><a href="#sec8">どう選ぶか</a></li><li><a href="#sec9">詳しい検証</a></li><li><a href="#sec10">追い金100万円を最初から持つ場合</a></li><li><a href="#sec11">現金0で頂点から始めるとN4は無力</a></li><li><a href="#sec12">2000年・1985年を救えるか</a></li><li><a href="#sec13">注意</a></li></ol><div class="chapter-nav"><a href="rules.html">← 第07章 売買ルール</a><a href="tax.html">第09章 税金と複利 →</a></div></aside>
+<main id="main">
+
+<h1 class="page">第08章 レバレッジ実践</h1>
+<p class="lead">2倍と3倍で、売買ルールは変わるのか。TQQQ/QLDとSSO/SPXLを、バイ＆ホールド・RH20・ラダー売買で同じ条件で比べました。初期100万円＋毎月3万円、税引後（2x/3xはNISA対象外なので課税口座）、現金はTビルで運用です。以下の長期数値は、<b>実際の<a class="term" href="glossary.html#t-fee">信託報酬</a>（TQQQ 0.95%、SPXL 0.91%等）＋調達スプレッド0.5%</b>を当てたコスト調整版。第03〜05章の長期数値は旧前提（スプレッド0%）で、3xは約1pt楽観的です。</p>
+<p class="small">※以下の表は<b>現金0ベース</b>。追い金100万円を最初から持つ場合は「追い金100万円を最初から持つ場合」を参照。</p>
+<h2 id="sec1">結論：3xはラダー、2xはB&amp;H<a class="anchor" href="#sec1" aria-hidden="true" tabindex="-1">#</a></h2>
+<div class="callout">
+<ul>
+<li><b>3x（TQQQ/SPXL）は、ラダー売買が効く。</b>最初の買値の2倍で30%売却、以降+10%ごと。買いは-50%から後ろ加重。</li>
+<li><b>2x（QLD）は、B&amp;Hが最適。</b>売買ルールを入れても実DDが下がらず、リターンだけ落ちる。</li>
+<li><b>2x（SSO）は、B&amp;Hがリターン最大だが、N2/N4はDDを12〜22pt下げ、Calmarを改善する。</b>2xでも保険として使う価値はある。</li>
+</ul>
+</div>
+<div class="callout warn"><b>「毎月の新高値で売る」は避ける。</b>実TQQQではMH1 10%が税前+35.5%/税引後+30.0%で、B&amp;H（+38.6%/+37.6%）に負ける。売り過ぎで現金比率が上がり、複利を削る。</div>
+<p class="small">本ガイドの実践比較は、リターン45%・DD15%・効率15%・再現性15%・破滅/実行10%の進攻型スコアで見ています。スコア差が1〜2点以内は実質同点として扱います。</p>
+<h2 id="sec2">売買ルールの型<a class="anchor" href="#sec2" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>売りは<b>RH20</b>と<b>ラダー</b>の2種類を試しました。最終的に採用したのはラダーです。</p>
+<ol>
+<li><b>売り：</b>最初の買値の2倍で保有の30%を売却。以降、前回の売却価格から+10%ごとに30%。売却時点の現金比率が20%以上なら見送る。</li>
+<li><b>買い：</b>ATHから-50%で1回目。N2は現金の60%→40%（-50%→-55%）、N4は10%→20%→30%→40%（-50%→-60%→-68%→-74.4%）、N5は5%→10%→15%→25%→45%（-50%→-60%→-68%→-74.4%→-79.5%）。</li>
+<li><b>リセット：</b>新高値（ATH更新）で買いラダーをリセット。次の-50%から再開。</li>
+</ol>
+<div class="callout warn">30%売却＋20%キャップは、2倍で1回売ると現金約30%になり、次の+10%売却は止まります。+10%刻みを連続で使いたいなら、売却率を5〜10%に下げてください。詳しくは下の「売却率で変わる挙動」。</div>
+<h2 id="sec3">ナスダック100：TQQQ（3x）とQLD（2x）<a class="anchor" href="#sec3" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th class="">戦略</th><th class="num">実TQQQ 2010-26</th><th class="num">合成3x 1985-26</th><th class="num">実QLD 2006-26</th><th class="num">合成2x 1985-26</th></tr></thead><tbody><tr><td class="">B&amp;H</td><td class="num">+38.6% / 81.6%</td><td class="num">+16.3% / 100%</td><td class="num">+26.0% / 76.9%</td><td class="num">+18.3% / 98.7%</td></tr><tr><td class="">RH20 t4</td><td class="num">+32.1% / 70.0%</td><td class="num">+16.0% / 88.6%</td><td class="num">+21.5% / 76.9%</td><td class="num">+15.3% / 90.6%</td></tr><tr><td class="">ラダー single50</td><td class="num">+38.1% / 61.0%</td><td class="num">+14.9% / 99.9%</td><td class="num">—</td><td class="num">—</td></tr><tr><td class="">ラダー N2 60/40</td><td class="num">+30.7% / 69.3%</td><td class="num">+15.6% / 83.7%</td><td class="num">+22.7% / 76.9%*</td><td class="num">+15.9% / 98.2%*</td></tr><tr><td class="">ラダー N4 10/20/30/40</td><td class="num">+30.7% / 64.2%</td><td class="num">+15.2% / 99.6%</td><td class="num">+19.9% / 76.9%*</td><td class="num">+15.7% / 96.4%*</td></tr></tbody></table>
+<p class="caption">現金0ベース。IRR / 最大DD（積立口座の評価額）。*QLDは売却率を調整（N2は10%、N4は20%）。TQQQは30%。合成はNDX 1x/2x/3xの1985-2026。</p>
+<p><b>3x TQQQ：</b>直近の実データでは、単発-50%が+38.1%/DD61.0%で最強。ただしドットコム込み41年ではDD99.9%。N2 60/40は+30.7%/69.3%、41年+15.6%/83.7%で、直近のリターンを約7pt落とす代わりにドットコムDDを16pt下げます。N4は+30.7%/64.2%だが、41年は+15.2%/99.6%。N4は2020/2022には効くが、ドットコムではDDを下げません。長期DDはN2の83.7%が最良です。</p>
+<p><b>2x QLD：</b>B&amp;Hが+26.0%/76.9%。RH20（21.5%）、N2（22.7%）、N4（20.0%）は、<b>実DDが同じ76.9%</b>で、リターンだけ低い。QLDの最大DDは2008年・2022年で決まっており、2倍の売りラダーでは回避できません。<b>2xはB&amp;Hが最適</b>です。</p>
+<h2 id="sec4">S&amp;P500：SPXL（3x）とSSO（2x）<a class="anchor" href="#sec4" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th class="">戦略</th><th class="num">実 2x 2010-26</th><th class="num">合成2x 1970-26</th><th class="num">実 3x 2010-26</th><th class="num">合成3x 1970-26</th></tr></thead><tbody><tr><td class="">B&amp;H</td><td class="num">+21.0% / 59.3%</td><td class="num">+13.5% / 87.9%</td><td class="num">+27.0% / 76.8%</td><td class="num">+13.6% / 98.1%</td></tr><tr><td class="">RH20 t4</td><td class="num">+17.9% / 53.7%</td><td class="num">+11.8% / 78.8%</td><td class="num">+23.1% / 70.8%</td><td class="num">+11.6% / 83.2%</td></tr><tr><td class="">ラダー N2 60/40</td><td class="num">+17.0% / 42.7%</td><td class="num">+10.4% / 67.3%</td><td class="num">+18.8% / 70.3%</td><td class="num">+12.4% / 97.3%</td></tr><tr><td class="">ラダー N4 10/20/30/40</td><td class="num">+15.3% / 40.5%</td><td class="num">+10.2% / 67.3%</td><td class="num">+22.0% / 52.9%</td><td class="num">+11.9% / 95.8%</td></tr></tbody></table>
+<p class="caption">現金0ベース。IRR / 最大DD。実ETFはSPY/SSO/SPXLの2010-2026、合成はS&amp;P500の1970-2026。税20.315%、Tビル現金、終値執行。</p>
+<p><b>2x SSO：</b>B&amp;Hが+21.0%/59.3%でリターン最大。N2は+17.0%/42.7%、N4は+15.3%/40.5%で、<b>DDを17〜19pt下げ、Calmarを改善</b>します。2xでも「保険」として使う価値はあります。</p>
+<p><b>3x SPXL：</b>B&amp;Hは+27.0%/76.8%。N4は+22.0%/52.9%で直近のDDを24pt下げるが、1970-2026では+11.9%/95.8%でB&amp;H（+13.6%/98.1%）と大差なし。N2は+18.8%/70.3%、1970-2026は+12.4%/97.3%。<b>N4は直近レジームの最適化で、長期のDD削減策ではありません。</b></p>
+<h2 id="cost">実際のコスト：信託報酬と調達スプレッド</h2>
+<p>実ETFの公称信託報酬は、QQQ 0.20%、QLD 0.95%、TQQQ 0.95%、SPY 0.0945%、SSO 0.89%、SPXL 0.91%、SOXX 0.35%、SOXL 0.75%。レバレッジETFはこれに加えて、スワップの調達スプレッド（Tビル＋α）を払います。</p>
+<table><thead><tr><th class="">ETF</th><th class="num">信託報酬</th><th class="num">含意スプレッド（2010-26実データ）</th></tr></thead><tbody><tr><td class="">QQQ</td><td class="num">0.20%</td><td class="num">—</td></tr><tr><td class="">QLD</td><td class="num">0.95%</td><td class="num">約0.60%</td></tr><tr><td class="">TQQQ</td><td class="num">0.95%</td><td class="num">約0.25%</td></tr><tr><td class="">SPY</td><td class="num">0.0945%</td><td class="num">—</td></tr><tr><td class="">SSO</td><td class="num">0.89%</td><td class="num">約0.75%</td></tr><tr><td class="">SPXL</td><td class="num">0.91%</td><td class="num">約0.85%</td></tr><tr><td class="">SOXX</td><td class="num">0.35%</td><td class="num">—</td></tr><tr><td class="">SOXL</td><td class="num">0.75%</td><td class="num">未計算</td></tr></tbody></table>
+<p class="caption">含意スプレッドは、合成系列の2010-2026リターンを実ETFに合わせる値。実際のスプレッドは時期・商品で変わるため、本ガイドは0.5%を基準に0〜1.0%の感度を示します。</p>
+<table><thead><tr><th class="">3x戦略</th><th class="num">スプレッド0%</th><th class="num">0.5%（基準）</th><th class="num">1.0%（ストレス）</th></tr></thead><tbody><tr><td class="">TQQQ B&amp;H</td><td class="num">+17.3% / 100%</td><td class="num">+16.3% / 100%</td><td class="num">+15.5% / 100%</td></tr><tr><td class="">TQQQ N2 60/40</td><td class="num">+16.4% / 77.6%</td><td class="num">+15.6% / 83.7%</td><td class="num">+14.8% / 82.7%</td></tr><tr><td class="">SPXL B&amp;H</td><td class="num">+14.7% / 97.9%</td><td class="num">+13.6% / 98.1%</td><td class="num">+12.6% / 98.2%</td></tr><tr><td class="">SPXL N2 60/40</td><td class="num">+13.1% / 86.5%</td><td class="num">+12.4% / 97.3%</td><td class="num">+11.7% / 97.3%</td></tr></tbody></table>
+<p class="caption">合成の全期間IRR / 最大DD。スプレッド+0.5%で3xは約1pt下がるが、1x/2x/3xの順位や「2x B&amp;H、3xラダー」の向きは変わらない。SPXL N2のDDが0.5%で97.3%に跳ねるのは経路依存。長期DDはN2の方が安定。</p>
+<h3>実ETFと合成の乖離（2010-2026）</h3>
+<table><thead><tr><th class="">ETF</th><th class="num">実CAGR</th><th class="num">合成CAGR</th><th class="num">差</th><th class="num">実vol</th><th class="num">合成vol</th><th class="num">実DD</th><th class="num">合成DD</th><th class="num">TE</th></tr></thead><tbody><tr><td class="">QQQ</td><td class="num">+19.1%</td><td class="num">+19.0%</td><td class="num">+0.1%</td><td class="num">20.6%</td><td class="num">20.8%</td><td class="num">35.1%</td><td class="num">35.1%</td><td class="num">1.1%</td></tr><tr><td class="">QLD</td><td class="num">+32.2%</td><td class="num">+32.2%</td><td class="num">-0.1%</td><td class="num">41.2%</td><td class="num">41.6%</td><td class="num">63.7%</td><td class="num">63.4%</td><td class="num">1.9%</td></tr><tr><td class="">TQQQ</td><td class="num">+41.4%</td><td class="num">+41.6%</td><td class="num">-0.2%</td><td class="num">61.1%</td><td class="num">62.5%</td><td class="num">81.7%</td><td class="num">81.5%</td><td class="num">3.5%</td></tr><tr><td class="">SPY</td><td class="num">+14.4%</td><td class="num">+14.4%</td><td class="num">-0.0%</td><td class="num">17.0%</td><td class="num">17.1%</td><td class="num">33.7%</td><td class="num">33.8%</td><td class="num">1.0%</td></tr><tr><td class="">SSO</td><td class="num">+23.4%</td><td class="num">+23.7%</td><td class="num">-0.3%</td><td class="num">34.1%</td><td class="num">34.3%</td><td class="num">59.3%</td><td class="num">59.1%</td><td class="num">1.8%</td></tr><tr><td class="">SPXL</td><td class="num">+29.9%</td><td class="num">+30.7%</td><td class="num">-0.8%</td><td class="num">50.9%</td><td class="num">51.4%</td><td class="num">76.9%</td><td class="num">76.7%</td><td class="num">3.0%</td></tr></tbody></table>
+<p class="caption">2010-02-11〜2026-10-23。合成はNDX/S&amp;P500 TRに<a class="term" href="glossary.html#t-leverage">レバレッジ</a>・信託報酬・スプレッド0.5%を適用。TEは<a class="term" href="glossary.html#t-daily-return">日次リターン</a>差の年率標準偏差。実ETFのCAGRが合成を下回るほど、実際のスプレッドは0.5%より大きい。</p>
+<p><b>読み方：</b>NDX系（QLD/TQQQ）は0.5%前提がほぼ一致（-0.1〜-0.2pt）。S&amp;P 3xのSPXLは-0.8ptで、実際のスプレッドは0.5%より高かった可能性があります。ガイドの1.0%ストレスケースはこの不足を概ねカバーします。TEは3xで年3〜3.5%、1経路のCAGR差は±数ptあり得るため、<b>0.1pt単位の順位比較はしない</b>。実ETFのDDは合成と±0.3ptで一致しており、経路の再現は良好です。</p>
+<h3>実コスト版・全期間B&amp;H</h3>
+<table><thead><tr><th class="">指数</th><th class="">期間</th><th class="num">1x</th><th class="num">2x</th><th class="num">3x</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="">1970-2026</td><td class="num">+10.9% / 55.3%</td><td class="num">+12.9% / 88.0%</td><td class="num">+12.2% / 98.1%</td></tr><tr><td class="">ナスダック100</td><td class="">1985-2026</td><td class="num">+15.3% / 82.6%</td><td class="num">+19.2% / 98.7%</td><td class="num">+16.0% / 99.98%</td></tr><tr><td class="">半導体（SOX）</td><td class="">1994-2026</td><td class="num">+15.9% / 86.2%</td><td class="num">+12.7% / 99.8%</td><td class="num">-4.6% / 99.999%</td></tr></tbody></table>
+<p class="caption">CAGR / 最大DD。1xは信託報酬のみ、2x/3xは信託報酬＋スプレッド0.5%。第03-05章の図表はスプレッド前なので、3xは約1pt、2xは約0.5pt楽観。NDX 3xの99.98%は丸めない値（99.977%）。</p>
+<h2 id="sec5">10年・20年・30年で見たS&amp;P500 3x<a class="anchor" href="#sec5" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th class="">3x S&amp;P500</th><th class="num">10年</th><th class="num">20年</th><th class="num">30年</th></tr></thead><tbody><tr><td class="">B&amp;H</td><td class="num">+15.2% / 79.9%</td><td class="num">+12.3% / 92.2%</td><td class="num">+11.7% / 97.4%</td></tr><tr><td class="">ラダー N2 60/40</td><td class="num">+16.4% / 69.4%</td><td class="num">+12.8% / 81.3%</td><td class="num">+11.2% / 88.2%</td></tr><tr><td class="">ラダー N4 10/20/30/40</td><td class="num">+15.4% / 64.0%</td><td class="num">+11.8% / 87.0%</td><td class="num">+11.0% / 94.6%</td></tr></tbody></table>
+<p class="caption">現金0ベース。合成S&amp;P500 3xのローリング窓（開始を四半期ごとにずらした中央値）。IRR / 最大DD。</p>
+<p>10年では<b>N2がB&amp;HをリターンとDDの両方で上回り</b>、N4はDD64.0%で最も浅い。20年ではN2が12.8/81.3でB&amp;H 12.3/92.2を上回る。30年ではN2がDD88.2%で最も浅く、N4は94.6%。<b>長期のDD削減はN2、直近10年のDDはN4</b>です。</p>
+<h2 id="sec6">売却率で変わる挙動<a class="anchor" href="#sec6" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>30%売却＋20%キャップは「1サイクル1回」の売却です。2倍で30%売ると現金約30%になり、次の+10%はキャップで止まります。+10%刻みを連続で使いたいなら、売却率を5〜10%に下げてください。</p>
+<table><thead><tr><th class="">売却率</th><th class="num">2倍時の現金</th><th class="num">次の+10%売却</th><th class="num">向き</th></tr></thead><tbody><tr><td class="">30%</td><td class="num">約30%</td><td class="num">キャップで停止。次は買い戻し後</td><td class="num">サイクル型。直近の実TQQQで最高効率</td></tr><tr><td class="">10%</td><td class="num">約10%</td><td class="num">可。+10%ごとに10%ずつ</td><td class="num">gradual。売却回数が増える</td></tr><tr><td class="">5%</td><td class="num">約5%</td><td class="num">可。+10%ごとに5%ずつ</td><td class="num">よりgradual。現金が溜まりやすい</td></tr></tbody></table>
+<h2 id="sec7">IRRと最大DDだけで足りるのか<a class="anchor" href="#sec7" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>IRRと最大DDは「成績の要約」であって、それだけで良し悪しは決まりません。最大DD（MDD）は、ピークから底までの最大下落率です。DDが76.8%なら、元に戻すには<b>+331%（4.31倍）</b>が必要。27%で約6年、15%で約10年かかります。</p>
+<table><thead><tr><th class="">SPXL 3x B&amp;H</th><th class="num">IRR中央</th><th class="num">IRR下位10%</th><th class="num">DD中央</th><th class="num">DD最悪</th></tr></thead><tbody><tr><td class="">10年</td><td class="num">+16.4%</td><td class="num">-2.5%</td><td class="num">79.8%</td><td class="num">94.2%</td></tr><tr><td class="">20年</td><td class="num">+13.5%</td><td class="num">+3.3%</td><td class="num">92.0%</td><td class="num">97.6%</td></tr><tr><td class="">30年</td><td class="num">+12.8%</td><td class="num">+8.6%</td><td class="num">97.2%</td><td class="num">97.8%</td></tr></tbody></table>
+<p class="caption">合成S&amp;P500 3xのローリング窓。開始を四半期ごとにずらした分布の中央値と下位10%。</p>
+<p>たとえばSPXL 3xのB&amp;Hは、実ETF 2010-2026で+27.0%/DD76.8%でした。しかしこれは「2010-2026の1経路」で、長期の中央値ではありません。合成30年ローリングでは+12.8%/DD97.2%、下位10%は+8.6%です。+27%に「落ち着く」わけではなく、開始時期で分布します。</p>
+<ul>
+<li><b>DDは通過点：</b>76.8%のDDを戻すには+331%。27%で約6年、15%で約10年。97.2%なら約30年で、実質全損に近い。</li>
+<li><b>最終リターンは「耐えた場合」の結果：</b>DDの底で売れば、+27%は実現しません。DDは、そのリターンを得るために払うコストです。</li>
+<li><b>DDは1経路の最大値：</b>30年では97.2%のDDもあり、B&amp;Hの+27%は2010-2026が特別に強かっただけかもしれません。</li>
+<li><b>だからCalmar・下位10%・DD90%超確率・underwater期間も見る：</b>本ガイドの5本柱です。</li>
+</ul>
+<p><b>「DD76.8%でも最終+27%だからOK」とは言えません。</b>+27%は耐えた場合の1経路で、DDはそのために払うコスト。耐えられないなら、N2/N4や2x/1xに落とすべきです。</p>
+<h2 id="sec8">どう選ぶか<a class="anchor" href="#sec8" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul>
+<li><b>NDX 3x（TQQQ）：</b>長期DDは<b>N2 60/40</b>（41年83.7%）。直近の2020/2022のDDは<b>N4 10/20/30/40</b>（64.2%）だが、41年では99.6%。単発-50%は直近最強だが、ドットコムDD99.9%なので長期では非推奨。</li>
+<li><b>NDX 2x（QLD）：</b><b>B&amp;H</b>。売買ルールは実DDを下げず、リターンだけ落とす。ドットコム保険が欲しい場合だけN4（売却20%）。</li>
+<li><b>S&amp;P 2x（SSO）：</b>リターン最大は<b>B&amp;H</b>。DDを下げたいなら<b>N2</b>か<b>N4</b>。N2は+17.0%/42.7%で、B&amp;Hより4pt低いがDDは17pt低い。</li>
+<li><b>S&amp;P 3x（SPXL）：</b>10年は<b>N4</b>がDD64.0%、20年は<b>N2</b>が12.8/81.3、30年は<b>N2</b>がDD88.2%。N4は30年94.6%で長期DD削減にはならない。</li>
+</ul>
+<p class="small">※「どう選ぶか」は現金0ベースの要約。追い金100万円を最初から持つ場合、2021/2007/1973ではN4が改善し、2000/1985では改善しません。</p>
+<h2 id="sec9">詳しい検証<a class="anchor" href="#sec9" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul>
+<li><a href="../downloads/tqqq_ladder_playbook_2026-10-29.html">2倍ラダー売却＋買い下がりラダー 実践ガイド</a> — 売買ルールの実践版</li>
+<li><a href="../downloads/tqqq_buy_allocation_2026-10-29.html">買い下がりの現金投入比率・研究</a> — 69通りの比較と推奨スケジュール</li>
+<li><a href="../downloads/rank_aggressive_2026-10-28.html">課税口座・進攻型ランキング</a> — 10年／20年／30年のNDX比較</li>
+<li><a href="../downloads/n4_tradeoff_2026-10-29.html">3x N4のトレードオフ</a> — DDは下がるがリターンも下がる理由を4パネルで図解</li>
+<li><a href="../downloads/bad_start_2026-10-29.html">悪い開始点ストレス（現金0）</a> — 2000/2007/2021/1973開始でN4がB&amp;Hと同一になる理由</li>
+<li><a href="../downloads/cash1m_restart_2026-10-29.html">追い金100万円を最初から持つ場合</a> — 2021/2007/1973は改善、2000/1985は改善しない</li>
+</ul>
+<p class="small">※詳細レポートの一部は旧前提（スプレッド0%）で、3xは約1pt楽観的。第08章の表がコスト調整版です。</p>
+<div class="callout warn"><b>2008年の初回暴落（現金0）：</b>2006-2026の3x N4はDD92.3%だが、<b>B&amp;H 3xも同じ92.3%</b>。この期間は2倍売却の前で現金がなく、N4は実質B&amp;Hです。2006-01の3x価格3.49、2007-10のピーク6.14は1.76倍で、2倍売却の6.99に届かず、最初の売却は2013-11。2008年底の現金0%。開始時から現金200k/300kを持てばDDは90.5%/89.5%まで下がるが、リターンはB&amp;Hの31.4%に対して29.0%/29.1%で、この期間はB&amp;HのCalmarが上。ルールの効果は「現金がある状態で発動した期間」で見る必要があります。</div>
+<h2 id="sec10">追い金100万円を最初から持つ場合<a class="anchor" href="#sec10" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>「現金0からN4を検証しても、下落時に買えないので意味がない」という指摘はもっともです。ここでは<b>投資100万円＋追い金100万円（合計200万円）</b>から始め、B&amp;Hも<b>200万円を全額投資</b>して総資金を揃えます。N2/N4だけに現金を足してB&amp;Hを100万円のままにすると、N4が過大に見えるためです。</p>
+<table><thead><tr><th class="">期間</th><th class="num">B&amp;H 2M</th><th class="num">N4 1M＋1M</th><th class="num">N2 1M＋1M</th></tr></thead><tbody><tr><td class="">2000-03 NDX 10年</td><td class="num">-9.8% / 97.1%</td><td class="num">-9.7% / 95.9%</td><td class="num">-9.8% / 96.8%</td></tr><tr><td class="">2000-03 NDX 20年</td><td class="num">+13.8% / 97.1%</td><td class="num">+13.8% / 95.9%</td><td class="num">+13.8% / 96.8%</td></tr><tr><td class="">2007-10 NDX 10年</td><td class="num">+29.6% / 91.5%</td><td class="num">+29.3% / 81.6%</td><td class="num">+26.6% / 89.9%</td></tr><tr><td class="">2007-10 NDX 19年</td><td class="num">+31.8% / 91.5%</td><td class="num">+30.4% / 81.6%</td><td class="num">+32.4% / 89.9%</td></tr><tr><td class="">2021-12 NDX 4年</td><td class="num">+17.9% / 72.8%</td><td class="num">+32.4% / 57.0%</td><td class="num">+24.1% / 63.5%</td></tr><tr><td class="">2010-01 NDX 16年</td><td class="num">+37.8% / 81.4%</td><td class="num">+31.2% / 61.0%</td><td class="num">+29.0% / 73.5%</td></tr><tr><td class="">1985-10 NDX 41年</td><td class="num">+16.7% / 100%</td><td class="num">+15.4% / 99.5%</td><td class="num">+15.3% / 99.9%</td></tr><tr><td class="">1973-01 S&amp;P 30年</td><td class="num">+9.8% / 92.3%</td><td class="num">+11.6% / 76.5%</td><td class="num">+11.2% / 88.2%</td></tr></tbody></table>
+<p class="caption">IRR / 最大DD。B&amp;Hは200万円全額投資、N2/N4は100万円投資＋100万円現金。毎月3万円、税20.315%、コスト+0.5%。</p>
+<ul>
+<li><b>2021-12：</b>N4は<b>+32.4% / 57.0%</b>で、B&amp;H（+17.9% / 72.8%）をリターン・DDの両方で上回る。2022年の急落で100万円を使い、回復に乗れた。</li>
+<li><b>2007-10：</b>N4は<b>+29.3% / 81.6%</b>で、B&amp;H（+29.6% / 91.5%）とほぼ同じリターン、DDは10pt低い。2008年の暴落で現金を使えた。</li>
+<li><b>1973-01：</b>N4は<b>+11.6% / 76.5%</b>で、B&amp;H（+9.8% / 92.3%）よりリターンもDDも良い。1973-74年と2000/2008年の両方で効いた。</li>
+<li><b>2000-03：</b>N4は<b>-9.7% / 95.9%</b>で、B&amp;H（-9.8% / 97.1%）とほぼ同じ。3xが-95%まで落ちると、買い下がり資金も一緒に壊れる。</li>
+<li><b>1985-10：</b>N4は<b>+15.4% / 99.5%</b>で、B&amp;H（+16.7% / 100%）とほぼ同じ。1M cashは41年の総資金に対して小さく、ドットコムDDを防げない。</li>
+<li><b>2010-01：</b>N4は<b>+31.2% / 61.0%</b>で、B&amp;H（+37.8% / 81.4%）よりリターンは6.6pt低いが、DDは20pt低い。Calmarは0.512 vs 0.465でN4が上。</li>
+</ul>
+<p><b>結論：</b>追い金100万円を最初から持つと、N4は2021年・2007年・1973年で大きく改善します。ただし2000年・1985年のように3xが-95〜-99%まで落ちる局面では、現金も一緒に失われ、DDはほぼ変わりません。<b>現金は「回復する暴落」には効くが、「戻らない全損」には効かない</b>のです。</p>
+<h2 id="sec11">現金0で頂点から始めるとN4は無力<a class="anchor" href="#sec11" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>ここからは<b>現金0</b>のケースです。N4の買い現金は<b>売却からしか作られません</b>。頂点から始めると、最初の暴落前に売却がなく、N4はB&amp;Hと同一になります。追い金100万円を最初から持つ場合は上の表の通り、2021年は改善し、2000年は改善しません。</p>
+<table><thead><tr><th class="">開始</th><th class="">指数</th><th class="">期間</th><th class="num">B&amp;H 3x</th><th class="num">N4</th><th class="num">N4＋現金300k</th></tr></thead><tbody><tr><td class="">2000-03</td><td class="">NDX</td><td class="">10年</td><td class="num">-7.5% / 95.3%</td><td class="num">-7.5% / 95.3%</td><td class="num">-7.5% / 93.7%</td></tr><tr><td class="">2007-10</td><td class="">NDX</td><td class="">10年</td><td class="num">+33.6% / 89.0%</td><td class="num">+28.8% / 89.0%</td><td class="num">+30.5% / 83.7%</td></tr><tr><td class="">2021-12</td><td class="">NDX</td><td class="">4年</td><td class="num">+23.2% / 67.7%</td><td class="num">+23.2% / 67.7%</td><td class="num">+30.1% / 56.5%</td></tr><tr><td class="">1973-01</td><td class="">S&amp;P</td><td class="">30年</td><td class="num">+13.7% / 90.5%</td><td class="num">+12.6% / 82.2%</td><td class="num">+12.9% / 82.1%</td></tr></tbody></table>
+<p class="caption">IRR / 最大DD。N4＋現金300kはルール外の初期現金。2000/2007/2021のN4は最初の暴落前に売却0回で、B&amp;Hと同一。1973は10年まで同一で、30年では途中の売却でDDが浅くなる。</p>
+<ul>
+<li><b>2000-03 NDX：</b>10年・20年ともN4はB&amp;Hと完全一致。売却0回、現金0%、DD95.3%。最初の売却は2013年以降。</li>
+<li><b>2021-12 NDX：</b>2022年のDD67.7%はB&amp;Hと同一。4年間で売却0回。N4＋現金300kだけがDD56.5%に下がるが、これは最初から現金を持っている効果。</li>
+<li><b>2007-10 NDX：</b>2008年のDD89.0%はB&amp;Hと同一。2010年以降に2回売却するが、10年リターンはB&amp;Hより4.7pt低い。N4＋300kはDD83.7%まで下がるが、リターンは30.5%。</li>
+<li><b>1973-01 S&amp;P：</b>最初の10年はB&amp;Hと同一。30年ではN4のDDが82.2%とB&amp;H（90.5%）より浅いが、リターンは12.6%でB&amp;H（13.7%）より低い。</li>
+</ul>
+<p><b>2010-2026のN4が良く見えたのは、2013-2021年の売却で現金を作り、その現金を2020/2022の暴落で使えたからです。</b>開始が2021年なら、その現金は最初から存在しません。「N4をやっていれば暴落に強い」ではなく、<b>「すでに売却現金がある人だけが、次の暴落に強い」</b>と理解してください。</p>
+<h2 id="sec12">2000年・1985年を救えるか<a class="anchor" href="#sec12" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>現金25%を「維持」しても、3xが-95%まで落ちる局面ではDDは90%前後にしかなりません。では、現金比率を上げる／トレンドで逃げる／何もしない、のどれが効くか。ここでは<b>毎月、指定の現金比率にリバランス</b>するP25/P50/P75で比較します。</p>
+<table><thead><tr><th class="">期間</th><th class="num">B&amp;H 2M</th><th class="num">N4 1M＋1M</th><th class="num">P25</th><th class="num">P50</th><th class="num">P75</th></tr></thead><tbody><tr><td class="">2000 NDX 10年</td><td class="num">-9.8% / 97.1%</td><td class="num">-9.7% / 95.9%</td><td class="num">-6.6% / 92.9%</td><td class="num">-4.3% / 80.3%</td><td class="num">-1.4% / 45.6%</td></tr><tr><td class="">1985 NDX 41年</td><td class="num">+16.7% / 100%</td><td class="num">+15.4% / 99.5%</td><td class="num">+16.8% / 99.4%</td><td class="num">+14.3% / 94.8%</td><td class="num">+9.3% / 71.7%</td></tr><tr><td class="">2010 NDX 16年</td><td class="num">+37.8% / 81.4%</td><td class="num">+31.2% / 61.0%</td><td class="num">+29.2% / 69.7%</td><td class="num">+20.3% / 52.1%</td><td class="num">+11.1% / 27.6%</td></tr><tr><td class="">2000 SOX 10年</td><td class="num">-22.5% / 97.8%</td><td class="num">-22.3% / 97.5%</td><td class="num">-18.0% / 94.8%</td><td class="num">-12.0% / 85.8%</td><td class="num">-4.7% / 51.1%</td></tr><tr><td class="">2010 SOX 16年</td><td class="num">+32.4% / 90.5%</td><td class="num">+34.0% / 80.5%</td><td class="num">+29.2% / 80.2%</td><td class="num">+22.6% / 62.5%</td><td class="num">+13.1% / 35.0%</td></tr></tbody></table>
+<p class="caption">P25/P50/P75＝毎月、現金比率を25/50/75%にリバランス。3xが下落すると買い、上昇すると売る。IRR / 最大DD。初期200万円、毎月3万円、税20.315%、コスト+0.5%。</p>
+<ul>
+<li><b>25%では足りない：</b>2000 NDXは-6.6%/92.9%、1985は+16.8%/99.4%。DDはほとんど変わらない。3xの-95%に対して25%の現金は小さすぎる。</li>
+<li><b>50%でも不十分：</b>2000 NDX -4.3%/80.3%、1985 +14.3%/94.8%、SOX 2000 -12.0%/85.8%。DDはまだ80〜95%。</li>
+<li><b>75%で2000 NDX/SOXは45〜51%まで下がる：</b>2000 NDX -1.4%/45.6%、SOX 2000 -4.7%/51.1%。ただし1985は+9.3%/71.7%、2010 NDXは+11.1%/27.6%で、ブル相場のリターンは大きく落ちる。</li>
+<li><b>「DDを救う」＝「リターンを捨てる」：</b>P75は2010 NDXでB&amp;Hの+37.8%→+11.1%。2000 NDXでも-9.8%→-1.4%で、依然マイナス。</li>
+</ul>
+<h3>1xと比べると</h3>
+<table><thead><tr><th class="">期間</th><th class="num">1x B&amp;H</th><th class="num">P75 3x</th></tr></thead><tbody><tr><td class="">2000 NDX 10年</td><td class="num">-0.1% / 63.3%</td><td class="num">-1.4% / 45.6%</td></tr><tr><td class="">1985 NDX 41年</td><td class="num">+14.6% / 82.3%</td><td class="num">+9.3% / 71.7%</td></tr><tr><td class="">2010 NDX 16年</td><td class="num">+17.0% / 34.5%</td><td class="num">+11.1% / 27.6%</td></tr><tr><td class="">2000 SOX 10年</td><td class="num">-5.3% / 66.8%</td><td class="num">-4.7% / 51.1%</td></tr><tr><td class="">2010 SOX 16年</td><td class="num">+21.2% / 45.7%</td><td class="num">+13.1% / 35.0%</td></tr></tbody></table>
+<p class="caption">1xは200万円を全額投資。P75は75%現金＋25% 3xを毎月リバランス。毎月3万円、税20.315%、コスト+0.5%。</p>
+<p><b>P75はDDを下げるが、リターンも下げる。</b>1985 NDXは1x +14.6%/82.3% vs P75 +9.3%/71.7%、2010 NDXは+17.0%/34.5% vs +11.1%/27.6%。Calmarは1xが上です。2000 NDXは1x -0.1%/63.3% vs P75 -1.4%/45.6%で、P75の方がDDは低いがリターンも低い。<b>75%現金を積むくらいなら、1xの方がシンプルで効率的</b>です。</p>
+<h3>N4の売りタイミングを変えると</h3>
+<p>N4の売りを前倒しし、売却率・現金キャップを上げ、買いを浅い下落から段階的にし、さらに現金フロアを設けた版を比較しました。</p>
+<table><thead><tr><th class="">期間</th><th class="num">N4_base</th><th class="num">S175C40B5F20</th><th class="num">S15C40B7F30</th><th class="num">S15C50B5F30</th></tr></thead><tbody><tr><td class="">2000 NDX 10年</td><td class="num">-9.7% / 95.9%</td><td class="num">-8.6% / 89.6%</td><td class="num">-8.2% / 88.2%</td><td class="num">-8.1% / 87.9%</td></tr><tr><td class="">1985 NDX 41年</td><td class="num">+15.4% / 99.5%</td><td class="num">+14.5% / 90.6%</td><td class="num">+14.4% / 89.0%</td><td class="num">+14.2% / 84.5%</td></tr><tr><td class="">2007 NDX 10年</td><td class="num">+29.3% / 81.6%</td><td class="num">+23.0% / 78.2%</td><td class="num">+22.3% / 73.4%</td><td class="num">+20.1% / 71.7%</td></tr><tr><td class="">2010 NDX 16年</td><td class="num">+31.2% / 61.0%</td><td class="num">+25.1% / 48.9%</td><td class="num">+25.4% / 58.5%</td><td class="num">+24.1% / 53.8%</td></tr><tr><td class="">2021 NDX 4年</td><td class="num">+32.4% / 57.0%</td><td class="num">+21.5% / 56.7%</td><td class="num">+21.9% / 53.2%</td><td class="num">+21.9% / 52.0%</td></tr><tr><td class="">SOX 2010 16年</td><td class="num">+34.0% / 80.5%</td><td class="num">+31.5% / 72.4%</td><td class="num">+28.3% / 69.6%</td><td class="num">+25.9% / 66.1%</td></tr></tbody></table>
+<p class="caption">N4_base＝2.0倍で30%売却、キャップ20%、-50/-60/-70/-80で10/20/30/40%。S175C40B5F20＝1.75倍で40%売却、キャップ40%、-30〜-70で10/15/20/25/30%、現金フロア20%。S15C40B7F30＝1.5倍で40%売却、キャップ40%、-20〜-80で5/10/15/20/25/12.5/12.5%、フロア30%。S15C50B5F30＝1.5倍で50%売却、キャップ50%、-30〜-70で10/15/20/25/30%、フロア30%。</p>
+<ul>
+<li><b>売りタイミングだけでは2000年は救えない：</b>3xは2000年の1.5倍/1.75倍/2倍に届かず、売却0回。だから開始倍率・売却率を変えても、2000 NDXは-9.7%/95.9%のまま。売りを変えるなら、初期現金か、価格ではなくポートフォリオ/ローリング高値基準にする必要があります。</li>
+<li><b>現金フロアは効くが、リターン犠牲：</b>1985 NDXはDD99.5%→89.0/84.5%、2010 NDXは61.0%→58.5/48.9%。ただし2021 NDXのリターンは32.4%→21.9/21.5%、2007 NDXは29.3%→22.3/23.0%に落ちる。</li>
+<li><b>バランス型はS175C40B5F20：</b>2010 NDX 25.1%/48.9%、1985 NDX 14.5%/90.6%。2010のDDを大きく下げるが、2021のリターンは21.5%でN4_base（32.4%）に大きく劣る。</li>
+<li><b>どの版も万能ではない：</b>N4_baseは2021・2007・2010のリターンで最良、フロア版はDDで最良。目的（DDかリターンか）で選ぶしかありません。</li>
+</ul>
+<h3>ATH200%＋25%維持は、2000年で機能しない</h3>
+<p>2000年の3xは、2000年のATHを十数年回復しません。ATH基準の売りは10年で2回しか発生せず、現金25%を維持できません。実際、2000 NDX 10年は-8.7%/89.9%で、N4（-9.7%/95.9%）と大差ありません。<b>ATH基準ではなく、毎月/四半期のリバランス</b>の方がまだ機能します。</p>
+<h3>N4の現金は一度使うと終わり？</h3>
+<p>N4の初期100万円は、-50/-60/-70/-80で使い切ると現金0。次に売れるのは「最後の売却価格+10%」を超えたときだけです。2000-2002は売却0回で、現金が補充されません。2020/2022は回復後に売却が入り、再度買い下がれます。つまりN4は<b>「売却が起きたら補充される型」</b>で、長期熊市では一度で終わります。</p>
+<h3>トレンドフィルターは？</h3>
+<p>200日MAは1985 NDXで+17.9%/83.8%とB&amp;H（+16.7%/100%）を上回るが、2000 NDXは+1.9%/93.0%、SOX 2000は-6.6%/96.8%でDDは救えません。50日MAは2000 NDX -9.3%/80.4%、SOX 2000 -30.1%/89.8%で、ホイップソーが増えて悪化。トレンドは「DDを消す」魔法ではありません。</p>
+<div class="callout warn">2000年・1985年の3xをDD50%以下で生き残るには、<b>75%前後の現金</b>か、<b>3xを使わない</b>かのどちらかです。25〜50%の現金やトレンドフィルターでは、90%前後のDDが残ります。SOXLはさらに厳しく、75%現金でも2000-2010は-4.7%/51.1%で、プラスにはなりません。</div>
+<h2 id="sec13">注意<a class="anchor" href="#sec13" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul>
+<li><b>現金0の場合：</b>2倍まで待つ間は無防備。2倍前に99%落ちる局面では、売却も買い下がりも発動しません。</li>
+<li>3xは-99%まで落ちる。N2/N4でもDD77〜86%。全損リスクは残ります。</li>
+<li>税20.315%均一、平均取得単価、損失繰越なし。<b>2x/3xのレバレッジETFはNISA対象外</b>なので、比較は課税口座の税引後。為替・売買コストは別。</li>
+<li>パラメータを多数試しており、最良の行は過剰最適化の可能性があります。過去の1経路であり、将来の保証ではありません。</li>
+</ul>
+<nav class="nav"><a href="rules.html"><span class="dir">前の章</span>← 第07章 売買ルール</a><a href="tax.html" style="text-align:right"><span class="dir">次の章</span>第09章 税金と複利 →</a></nav>
+</main>
+</div>
+<footer>
+  <p>本ガイドは分析結果であり、投資助言ではありません。</p>
+  <p style="margin-top:6px">
+    <a href="../index.html">目次</a> ・
+    <a href="../downloads/levetf_report_ja.pdf">一次資料（PDF）</a> ・
+    <a href="../downloads/levetf_onepager_ja_en.pdf">1枚要約</a> ・
+    <a href="../downloads/levetf_slides_ja.pdf">講義スライド</a>
+  </p>
+</footer>
+<button class="to-top" aria-label="ページ先頭へ">↑</button>
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="キーワード（例: 減価、SOX、Calmar）" aria-label="検索語">
+    <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+    <div class="search-hint">Esc で閉じる ・ / でも開けます</div>
+  </div>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

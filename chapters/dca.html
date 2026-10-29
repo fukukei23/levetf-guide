@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>積立の検証 — レバレッジETF ガイド</title>
+<meta name="description" content="毎月3万円の積立を10年・20年・30年で検証。200日線・押し目買い増し・初期一括などのルールも比較し、勝てた手法と負けた手法を整理します。">
+<meta property="og:title" content="積立の検証 — レバレッジETF ガイド">
+<meta property="og:description" content="毎月3万円の積立を10年・20年・30年で検証。200日線・押し目買い増し・初期一括などのルールも比較し、勝てた手法と負けた手法を整理します。">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="reading" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="../index.html">📈 レバレッジETF ガイド</a>
+  <nav class="topnav" aria-label="サイト内">
+    <a href="../index.html">目次</a>
+    <a href="../index.html#downloads">PDF</a>
+    <button id="searchOpen" aria-label="検索を開く" aria-haspopup="dialog" aria-controls="searchModal" aria-expanded="false">🔍 <span class="btn-text">検索</span> <kbd>Ctrl K</kbd></button>
+    <button id="themeToggle" aria-label="テーマ切替">🌓</button>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar"><h2>この章の目次</h2><ol><li><a href="#sec1">10年・20年・30年で切り取る</a></li><li><a href="#sec2">ルールを重ねるとどうなるか</a></li><li><a href="#sec3">勝てたもの・負けたもの</a></li><li><a href="#sec4">DDしきい値を全部試す</a></li><li><a href="#sec5">段階式（深くなるほど厚く）</a></li><li><a href="#sec6">30年を超える超長期（1871-2026）</a></li><li><a href="#sec7">「勝てる手法」の結論</a></li><li><a href="#sec8">実務メモ</a></li></ol><div class="chapter-nav"><a href="sox.html">← 第05章 半導体（SOX）</a><a href="rules.html">第07章 売買ルール →</a></div></aside>
+<main id="main">
+
+<h1 class="page">第06章 積立の検証</h1>
+<p class="lead">毎月3万円の積立を、10年・20年・30年に区切って検証し、さらに買付ルールを重ねて「勝てる形」を探しました。</p>
+<h2 id="sec1">10年・20年・30年で切り取る<a class="anchor" href="#sec1" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>毎月3万円を拠出し、期間末の倍率（評価額÷投資額）を、開始月を1か月ずつずらして全通り計算しました。S&amp;P500の10年なら562通りあります。</p>
+<table><thead><tr><th class="">指数</th><th class="">期間</th><th class="num">1x 中央（最小–最大）</th><th class="num">2x 中央（最小–最大）</th><th class="num">3x 中央（最小–最大）</th><th class="num">2x 勝率</th><th class="num">3x 勝率</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="">10年</td><td class="num">1.93（0.68–3.13）</td><td class="num">2.53（0.30–6.91）</td><td class="num">2.90（0.12–14.57）</td><td class="num">71%</td><td class="num">66%</td></tr><tr><td class="">S&amp;P500</td><td class="">20年</td><td class="num">3.41（1.36–8.37）</td><td class="num">5.25（0.78–25.79）</td><td class="num">6.08（0.31–60.21）</td><td class="num">88%</td><td class="num">83%</td></tr><tr><td class="">S&amp;P500</td><td class="">30年</td><td class="num">5.51（3.88–17.33）</td><td class="num">10.79（3.19–51.50）</td><td class="num">12.42（1.36–105.50）</td><td class="num">98%</td><td class="num">83%</td></tr><tr><td class="">ナスダック100</td><td class="">10年</td><td class="num">2.26（0.71–10.02）</td><td class="num">3.92（0.33–55.33）</td><td class="num">5.43（0.09–205.04）</td><td class="num">69%</td><td class="num">65%</td></tr><tr><td class="">ナスダック100</td><td class="">20年</td><td class="num">3.74（2.01–9.12）</td><td class="num">4.24（0.79–46.11）</td><td class="num">4.88（0.12–146.43）</td><td class="num">61%</td><td class="num">58%</td></tr><tr><td class="">ナスダック100</td><td class="">30年</td><td class="num">11.07（8.66–15.00）</td><td class="num">23.65（10.76–62.97）</td><td class="num">23.27（4.10–152.64）</td><td class="num">100%</td><td class="num">82%</td></tr><tr><td class="">半導体（SOX）</td><td class="">10年</td><td class="num">1.72（0.46–7.46）</td><td class="num">2.15（0.12–23.01）</td><td class="num">2.35（0.03–40.90）</td><td class="num">57%</td><td class="num">56%</td></tr><tr><td class="">半導体（SOX）</td><td class="">20年</td><td class="num">4.79（1.71–21.17）</td><td class="num">8.72（1.04–124.25）</td><td class="num">10.07（0.86–211.18）</td><td class="num">79%</td><td class="num">79%</td></tr><tr><td class="">半導体（SOX）</td><td class="">30年</td><td class="num">13.58（9.92–30.78）</td><td class="num">24.93（12.94–120.19）</td><td class="num">24.84（7.83–177.42）</td><td class="num">100%</td><td class="num">90%</td></tr></tbody></table>
+<p class="caption">勝率は「同じ開始月で1xの倍率を上回った割合」。</p>
+<p>読み方は3つです。</p>
+<ul>
+<li><b>30年では2xがほぼ負けない</b>。S&amp;P500 98%、ナスダック100 100%、SOX 100%。</li>
+<li><b>3xは30年でも8〜9割</b>。負ける窓は、2000年前後に始めた場合に集中しています。</li>
+<li><b>10年は運の要素が大きい</b>。3xの最小は指数的に0.03〜0.12倍。10年で3倍を選ぶのは、勝率6割前後の賭けに近いものです。</li>
+</ul>
+<h2 id="sec2">ルールを重ねるとどうなるか<a class="anchor" href="#sec2" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>「毎月3万円」に、よく言われるルールを足してみました。200日線は買付の停止、初期100万円は一括併用、DD20%は高値から20%下がった月に倍額、3x/1x切替は200日線の上下で買付先を変える方式です。</p>
+<table><thead><tr><th class="">指数</th><th class="">レバ</th><th class="num">素の積立</th><th class="num">200日線で停止</th><th class="num">初期100万円</th><th class="num">DD20%で倍額</th><th class="num">3x/1x切替</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="">2x</td><td class="num">346倍</td><td class="num">211倍</td><td class="num">390倍</td><td class="num">348倍</td><td class="num">320倍</td></tr><tr><td class="">S&amp;P500</td><td class="">3x</td><td class="num">490倍</td><td class="num">291倍</td><td class="num">525倍</td><td class="num">503倍</td><td class="num">320倍</td></tr><tr><td class="">ナスダック100</td><td class="">2x</td><td class="num">201倍</td><td class="num">110倍</td><td class="num">294倍</td><td class="num">185倍</td><td class="num">104倍</td></tr><tr><td class="">ナスダック100</td><td class="">3x</td><td class="num">151倍</td><td class="num">84倍</td><td class="num">185倍</td><td class="num">177倍</td><td class="num">104倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">2x</td><td class="num">61倍</td><td class="num">32倍</td><td class="num">61倍</td><td class="num">72倍</td><td class="num">43倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">3x</td><td class="num">54倍</td><td class="num">29倍</td><td class="num">50倍</td><td class="num">66倍</td><td class="num">43倍</td></tr></tbody></table>
+<p class="caption">全期間（S&amp;P500は56年、NDXは41年、SOXは32年）の最終倍率。「3x/1x切替」は3倍と1倍を切り替えるルールなので、2xと3xの行は同じ値になります。</p>
+<table><thead><tr><th class="">指数</th><th class="">レバ</th><th class="num">素の積立</th><th class="num">200日線で停止</th><th class="num">初期100万円</th><th class="num">DD20%で倍額</th><th class="num">3x/1x切替</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="">2x</td><td class="num">+14.9%</td><td class="num">+13.8%</td><td class="num">+14.6%</td><td class="num">+15.0%</td><td class="num">+14.8%</td></tr><tr><td class="">S&amp;P500</td><td class="">3x</td><td class="num">+15.7%</td><td class="num">+14.5%</td><td class="num">+15.3%</td><td class="num">+15.9%</td><td class="num">+14.8%</td></tr><tr><td class="">ナスダック100</td><td class="">2x</td><td class="num">+19.4%</td><td class="num">+17.4%</td><td class="num">+19.6%</td><td class="num">+19.8%</td><td class="num">+17.2%</td></tr><tr><td class="">ナスダック100</td><td class="">3x</td><td class="num">+18.4%</td><td class="num">+16.5%</td><td class="num">+18.1%</td><td class="num">+19.6%</td><td class="num">+17.2%</td></tr><tr><td class="">半導体（SOX）</td><td class="">2x</td><td class="num">+19.8%</td><td class="num">+17.0%</td><td class="num">+18.5%</td><td class="num">+20.8%</td><td class="num">+18.3%</td></tr><tr><td class="">半導体（SOX）</td><td class="">3x</td><td class="num">+19.3%</td><td class="num">+16.6%</td><td class="num">+17.7%</td><td class="num">+20.4%</td><td class="num">+18.3%</td></tr></tbody></table>
+<p class="caption">同じ比較のIRR（金額加重の年率）。</p>
+<h2 id="sec3">勝てたもの・負けたもの<a class="anchor" href="#sec3" aria-hidden="true" tabindex="-1">#</a></h2>
+<p><b>負けた：200日線で買付を止める。</b>全6通りで素の積立に負けました。S&amp;P500の3倍は490倍→291倍。待っている間に上がる分を逃し、押し目で買えた分では取り返せません。「上がっている間は買わない」は、積立では逆効果でした。</p>
+<p><b>負けた：3x/1xの切替。</b>同じく全6通りで負け。切替は「勝っているときに利を伸ばす」ように見えて、実際には上昇局面の3倍を取り逃がします。</p>
+<p><b>勝った：DD20%での倍額。</b>6通りすべてでIRRが改善しました（S&amp;P500 3x +15.7%→+15.9%、SOX 3x +19.3%→+20.4%）。暴落後に多く買うので平均単価が下がります。ただしこれはIRR（金額加重）での話で、最終倍率ではナスダック100の2xが201倍→185倍と下がります。倍額を出せる現金を普段から確保しておく必要があります。</p>
+<p><b>勝った：初期100万円。</b>全6通りで最終額が増えました。ただしこれは「同じ運用を早く大きく始めた」だけで、手法の優位ではありません。DDも増えます。</p>
+
+<h2 id="sec4">DDしきい値を全部試す<a class="anchor" href="#sec4" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>「高値から何%下がったら、何倍で買うか」を総当たりしました。行が倍率、列がしきい値、セルはIRRです（基本は毎月3万円で、条件に当てはまった月だけ増額）。</p>
+<h3>半導体（SOX）3倍 ― 効く例</h3>
+<table><thead><tr><th class="">倍率＼しきい値</th><th class="num">5%</th><th class="num">10%</th><th class="num">15%</th><th class="num">20%</th><th class="num">25%</th><th class="num">30%</th><th class="num">40%</th></tr></thead><tbody><tr><td class="">×1.5</td><td class="num">+19.6%</td><td class="num">+19.9%</td><td class="num">+20.0%</td><td class="num">+20.0%</td><td class="num">+20.1%</td><td class="num">+20.1%</td><td class="num">+20.3%</td></tr><tr><td class="">×2.0</td><td class="num">+19.8%</td><td class="num">+20.2%</td><td class="num">+20.3%</td><td class="num">+20.4%</td><td class="num">+20.6%</td><td class="num">+20.6%</td><td class="num">+21.0%</td></tr><tr><td class="">×3.0</td><td class="num">+20.0%</td><td class="num">+20.5%</td><td class="num">+20.7%</td><td class="num">+20.9%</td><td class="num">+21.1%</td><td class="num">+21.2%</td><td class="num">+21.8%</td></tr></tbody></table>
+<p class="caption">素の積立は+19.3%。しきい値が深く、倍率が大きいほど改善します。</p>
+<h3>S&amp;P500 3倍 ― ほとんど効かない例</h3>
+<table><thead><tr><th class="">倍率＼しきい値</th><th class="num">5%</th><th class="num">10%</th><th class="num">15%</th><th class="num">20%</th><th class="num">25%</th><th class="num">30%</th><th class="num">40%</th></tr></thead><tbody><tr><td class="">×1.5</td><td class="num">+15.8%</td><td class="num">+15.8%</td><td class="num">+15.8%</td><td class="num">+15.8%</td><td class="num">+15.8%</td><td class="num">+15.8%</td><td class="num">+15.8%</td></tr><tr><td class="">×2.0</td><td class="num">+15.9%</td><td class="num">+15.9%</td><td class="num">+15.9%</td><td class="num">+15.9%</td><td class="num">+15.9%</td><td class="num">+15.8%</td><td class="num">+15.8%</td></tr><tr><td class="">×3.0</td><td class="num">+15.9%</td><td class="num">+16.0%</td><td class="num">+16.0%</td><td class="num">+16.0%</td><td class="num">+16.0%</td><td class="num">+15.9%</td><td class="num">+15.8%</td></tr></tbody></table>
+<p class="caption">素の積立は+15.7%。最大でも+16.0%で、差は0.3pt程度です。</p>
+<p>指数によって答えが変わります。SOXは下落が深く頻繁なので押し目が効き、S&amp;P500は下落が浅く回復も緩やかなので、増額しても全体への寄与が小さくなります。ナスダック100は2倍で逆効果（201倍→185倍）、3倍では改善（151倍→177倍）でした。</p>
+<h2 id="sec5">段階式（深くなるほど厚く）<a class="anchor" href="#sec5" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>しきい値を1つだけ使うより、段階的に増やすほうが現実的です。4つの組み合わせを試しました。</p>
+<table><thead><tr><th class="">指数</th><th class="">レバ</th><th class="num">素の積立</th><th class="num">浅く小さく</th><th class="num">中くらい</th><th class="num">2段</th><th class="num">早めに厚く</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="">2x</td><td class="num">346倍</td><td class="num">360倍</td><td class="num">359倍</td><td class="num">352倍</td><td class="num">365倍</td></tr><tr><td class="">S&amp;P500</td><td class="">3x</td><td class="num">490倍</td><td class="num">526倍</td><td class="num">524倍</td><td class="num">514倍</td><td class="num">535倍</td></tr><tr><td class="">ナスダック100</td><td class="">2x</td><td class="num">201倍</td><td class="num">179倍</td><td class="num">174倍</td><td class="num">171倍</td><td class="num">192倍</td></tr><tr><td class="">ナスダック100</td><td class="">3x</td><td class="num">151倍</td><td class="num">191倍</td><td class="num">193倍</td><td class="num">191倍</td><td class="num">191倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">2x</td><td class="num">61倍</td><td class="num">77倍</td><td class="num">79倍</td><td class="num">79倍</td><td class="num">74倍</td></tr><tr><td class="">半導体（SOX）</td><td class="">3x</td><td class="num">54倍</td><td class="num">71倍</td><td class="num">73倍</td><td class="num">73倍</td><td class="num">68倍</td></tr></tbody></table>
+<p class="caption">全期間の最終倍率。左から「10%で1.5倍・20%で2倍・30%で3倍」「15/1.5・25/2・35/3」「20%で2倍・30%で3倍」「10%で2倍・20%で3倍」。</p>
+<div class="callout warn">倍額の原資は外から出す前提です。生活費を削って増額すると、暴落時に一番弱い立場になります。先に「増額用の現金」を別枠で用意してください。</div>
+<h2 id="sec6">30年を超える超長期（1871-2026）<a class="anchor" href="#sec6" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>S&amp;P500は1871年まで遡れます（Shillerの月次データ）。155年分で、30年・40年・50年の積立を全開始月で計算しました。</p>
+<table><thead><tr><th class="">期間</th><th class="num">1x 中央（最小–最大）</th><th class="num">2x</th><th class="num">3x</th><th class="num">2x勝率</th><th class="num">3x勝率</th></tr></thead><tbody><tr><td class="">30年</td><td class="num">5.0（1.41–17）</td><td class="num">7.1（0.47–74）</td><td class="num">8.3（0.06–453）</td><td class="num">77%</td><td class="num">72%</td></tr><tr><td class="">40年</td><td class="num">13.3（2.49–29）</td><td class="num">24.5（1.01–127）</td><td class="num">32.9（0.15–684）</td><td class="num">83%</td><td class="num">78%</td></tr><tr><td class="">50年</td><td class="num">27.0（3.75–72）</td><td class="num">63.8（1.51–296）</td><td class="num">101.0（0.21–1121）</td><td class="num">81%</td><td class="num">74%</td></tr></tbody></table>
+<p class="caption">倍率の中央値（最小–最大）。勝率は同じ開始月で1xを上回った割合。1869か月・155年分。</p>
+<p>期間を延ばすほど2倍が安定します。50年では2xの勝率が8割を超え、最小でも1.5倍。3倍は中央値で2xを上回るものの、勝率は7割台で、負ける窓が残ります。</p>
+<p>ただしこの155年は<b>月次リセットの<a class="term" href="glossary.html#t-approx">近似</a></b>です。同じ1970-2026年で比べると、月次近似の3倍は年+14.27%、日次リセットの実測は年+13.39%。月次近似は約0.9pt甘めです。3倍の上位はこの分だけ割り引いて読んでください。</p>
+<h2 id="sec7">「勝てる手法」の結論<a class="anchor" href="#sec7" aria-hidden="true" tabindex="-1">#</a></h2>
+<ol>
+<li><b>30年持てるなら2x</b>。勝率は98〜100%（1970年以降）。ただし1871年からの155年で見ると、30年の2x勝率は77%まで下がります。時代と国を選んだ数字です。3xより下落が浅く、生き残りやすい。</li>
+<li><b>押し目買いは、深いほど効く</b>。SOXの3倍は40%下落で3倍買いまで上げると+21.8%（素は+19.3%）。ただしS&amp;P500ではほぼ効果なし（+16.0%）。指数のボラティリティで答えが変わります。</li>
+<li><b>段階式にするなら「15/1.5・25/2・35/3」</b>が安定。SOX 3xで73倍、NDX 3xで193倍。</li>
+<li><b>初期資金は厚いほど有利</b>。ただしこれは「早く入る」効果で、相場観ではありません。</li>
+<li><b>200日線待ちとレバ切替は使わない</b>。積立では一貫して負けました。</li>
+</ol>
+<div class="callout warn">これは1つの相場を後から数えた結果です。ルールは5種類×6通り＝30通りの比較なので、偶然の勝ちは必ず混ざります。とくに「DD20%で倍額」は、平均単価が下がるという理屈と整合するため採用しましたが、今後も同じように効く保証はありません。</div>
+<h2 id="sec8">実務メモ<a class="anchor" href="#sec8" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul>
+<li>倍額ルールを使うなら、拠出額の2倍を1年分は現金で持つ（月3万円なら72万円）。</li>
+<li>3xは1日の下落 −33% で清算。宿泊できない資金は入れない。</li>
+<li>為替・税金・スプレッドは未考慮。ドル建ての数字を円と読み替えています。</li>
+</ul>
+<nav class="nav"><a href="sox.html"><span class="dir">前の章</span>← 第05章 半導体（SOX）</a><a href="rules.html" style="text-align:right"><span class="dir">次の章</span>第07章 売買ルール →</a></nav>
+</main>
+</div>
+<footer>
+  <p>本ガイドは分析結果であり、投資助言ではありません。</p>
+  <p style="margin-top:6px">
+    <a href="../index.html">目次</a> ・
+    <a href="../downloads/levetf_report_ja.pdf">一次資料（PDF）</a> ・
+    <a href="../downloads/levetf_onepager_ja_en.pdf">1枚要約</a> ・
+    <a href="../downloads/levetf_slides_ja.pdf">講義スライド</a>
+  </p>
+</footer>
+<button class="to-top" aria-label="ページ先頭へ">↑</button>
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="キーワード（例: 減価、SOX、Calmar）" aria-label="検索語">
+    <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+    <div class="search-hint">Esc で閉じる ・ / でも開けます</div>
+  </div>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

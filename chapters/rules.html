@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>売買ルール — レバレッジETF ガイド</title>
+<meta name="description" content="売買ルールを197通り検証。効いたのは予測ではなくポジションサイズでした。">
+<meta property="og:title" content="売買ルール — レバレッジETF ガイド">
+<meta property="og:description" content="売買ルールを197通り検証。効いたのは予測ではなくポジションサイズでした。">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="reading" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="../index.html">📈 レバレッジETF ガイド</a>
+  <nav class="topnav" aria-label="サイト内">
+    <a href="../index.html">目次</a>
+    <a href="../index.html#downloads">PDF</a>
+    <button id="searchOpen" aria-label="検索を開く" aria-haspopup="dialog" aria-controls="searchModal" aria-expanded="false">🔍 <span class="btn-text">検索</span> <kbd>Ctrl K</kbd></button>
+    <button id="themeToggle" aria-label="テーマ切替">🌓</button>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar"><h2>この章の目次</h2><ol><li><a href="#sec1">タイミングは最も悪い</a></li><li><a href="#sec2">効いたのは「サイズを絞る」</a></li><li><a href="#sec3">リバランスは月次で十分</a></li><li><a href="#sec4">指数によって効き方が違う</a></li><li><a href="#sec5">短期の往復は取れるか</a></li></ol><div class="chapter-nav"><a href="dca.html">← 第06章 積立の検証</a><a href="practice.html">第08章 レバレッジ実践 →</a></div></aside>
+<main id="main">
+
+<h1 class="page">第07章 売買ルール</h1>
+<p class="lead">売買ルールを、TQQQ・SOXL で検証しました（先読みなし、コスト5bp/回。各ETFの設定来で、SPXLは2008-11、TQQQは2010-02、SOXLは2010-03から。銘柄ごとに期間が少し違う）。</p>
+<h2 id="sec1">タイミングは最も悪い<a class="anchor" href="#sec1" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>12か月モメンタムは、TQQQ +13.8%（Buy&amp;Hold +41.4%）、SOXL +13.9%（同 +34.6%）。「上がっているから買う」は、<a class="term" href="glossary.html#t-leverage">レバレッジ</a>では通用しません。</p>
+<h2 id="sec2">効いたのは「サイズを絞る」<a class="anchor" href="#sec2" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th class="">ルール</th><th class="num">TQQQ CAGR</th><th class="num">TQQQ 最大DD</th><th class="num">SOXL CAGR</th><th class="num">SOXL 最大DD</th></tr></thead><tbody><tr><td class="">Buy &amp; Hold</td><td class="num">+39.7%</td><td class="num">81.7%</td><td class="num">+34.7%</td><td class="num">90.5%</td></tr><tr><td class="">200日線（原資産）</td><td class="num">+28.1%</td><td class="num">60.6%</td><td class="num">+28.9%</td><td class="num">83.0%</td></tr><tr><td class="">ボラ目標30%</td><td class="num">+28.3%</td><td class="num">42.8%</td><td class="num">+22.3%</td><td class="num">43.6%</td></tr><tr><td class="">200日線＋ボラ目標</td><td class="num">+20.7%</td><td class="num">49.9%</td><td class="num">+17.5%</td><td class="num">48.2%</td></tr></tbody></table>
+<p class="caption">200日線の計算に必要な200営業日を除いた2010-11〜2026-10の同一期間で比較。全期間のBuy&amp;HoldはTQQQ +41.4%・SOXL +34.6%で、この表の+39.7%・+34.7%とは開始日が違います。</p>
+<p>ボラ目標は、建玉を「目標ボラ ÷ 実現ボラ」で決めるだけの仕組みです。予測を使いません。</p>
+<div class="formula">建玉比率 = min(1.0, 目標ボラ ÷ 実現ボラ(20日))</div>
+<h2 id="sec3">リバランスは月次で十分<a class="anchor" href="#sec3" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>判断を月末だけにすると、売買回数は100回前後から20回台に減ります。成績は指数で逆方向に動き（TQQQのCAGRは+28.1%→+34.4%、SOXLは+28.9%→+26.4%）、差は数ptに収まります。手数料と税を考えれば、月次で十分です。</p>
+<h2 id="sec4">指数によって効き方が違う<a class="anchor" href="#sec4" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>200日線はTQQQのDDを81.7%→60.6%に下げますが、CAGRは+39.7%→+28.1%に落ちます。SOXLはDD 90.5%→83.0%、CAGR +34.7%→+28.9%。どちらも「痛みは減るが、稼ぎも減る」で、片方だけに効く道具ではありません。違うのは度合いです（TQQQのDDは21pt改善、SOXLは7.5pt）。</p>
+<h2 id="sec5">短期の往復は取れるか<a class="anchor" href="#sec5" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>「大きく下げた翌日に買い、すぐ売る」を検証しました。まず統計的な規則性があるかを見ます。</p>
+<table><thead><tr><th class="">銘柄</th><th class="num">日次平均</th><th class="num">−10%の翌日の平均</th><th class="num">t値</th></tr></thead><tbody><tr><td class="">SOXL</td><td class="num">+0.29%</td><td class="num">+1.69%（n=167）</td><td class="num">2.6</td></tr><tr><td class="">TQQQ</td><td class="num">+0.21%</td><td class="num">+1.17%（n=56）</td><td class="num">1.0</td></tr><tr><td class="">SPXL</td><td class="num">+0.16%</td><td class="num">+1.42%（n=45）</td><td class="num">1.0</td></tr></tbody></table>
+<p>SOXLは翌日平均+1.7%、t値2.6。統計的には「反発しやすい」と言えます。自己相関も−0.08と、軽い反転があります。ただし3銘柄×複数のしきい値を見ているので、t値2.6程度は探索の域を出ません。さらに−10%日は連続して起きるため、167回は独立な標本ではなく、実効の標本数はこれより少ない。</p>
+<p>ではルールにするとどうか。片道5bpのコストを入れて、全額を1日だけ持つ戦略を回しました。</p>
+<table><thead><tr><th class="">銘柄</th><th class="">ルール</th><th class="num">最終倍率</th><th class="num">CAGR</th><th class="num">最大DD</th></tr></thead><tbody><tr><td class="">SOXL</td><td class="">Buy&Hold</td><td class="num">139倍</td><td class="num">+34.6%</td><td class="num">—</td></tr><tr><td class="">SOXL</td><td class="">−5%の翌日買い→1日</td><td class="num">5.26倍</td><td class="num">+10.5%</td><td class="num">78%</td></tr><tr><td class="">SOXL</td><td class="">−10%の翌日買い→1日</td><td class="num">3.85倍</td><td class="num">+8.4%</td><td class="num">53%</td></tr><tr><td class="">SOXL</td><td class="">−10%の翌日買い→3日</td><td class="num">0.01倍</td><td class="num">-23.6%</td><td class="num">99%</td></tr><tr><td class="">TQQQ</td><td class="">Buy&Hold</td><td class="num">323倍</td><td class="num">+41.4%</td><td class="num">—</td></tr><tr><td class="">TQQQ</td><td class="">−5%の翌日買い→1日</td><td class="num">2.71倍</td><td class="num">+6.1%</td><td class="num">48%</td></tr><tr><td class="">TQQQ</td><td class="">−10%の翌日買い→1日</td><td class="num">1.17倍</td><td class="num">+1.0%</td><td class="num">40%</td></tr><tr><td class="">TQQQ</td><td class="">−10%の翌日買い→3日</td><td class="num">0.51倍</td><td class="num">-3.9%</td><td class="num">68%</td></tr><tr><td class="">SPXL</td><td class="">Buy&Hold</td><td class="num">84倍</td><td class="num">+28.0%</td><td class="num">—</td></tr><tr><td class="">SPXL</td><td class="">−5%の翌日買い→1日</td><td class="num">0.73倍</td><td class="num">-1.7%</td><td class="num">59%</td></tr><tr><td class="">SPXL</td><td class="">−10%の翌日買い→1日</td><td class="num">1.04倍</td><td class="num">+0.2%</td><td class="num">35%</td></tr><tr><td class="">SPXL</td><td class="">−10%の翌日買い→3日</td><td class="num">0.37倍</td><td class="num">-5.4%</td><td class="num">87%</td></tr></tbody></table>
+<p><b>Buy&Holdに勝てません。</b>SOXLは−10%の翌日買いでCAGR +8.4%（Buy&Hold +34.6%）。−10%で3日持つと0.01倍まで壊れます。TQQQとSPXLは、そもそも1日買いでもほぼ横ばいです。</p>
+<div class="callout warn">しかも、この戦略の成績は期間で真っ二つに割れます。SOXLの−10%翌日買いは、前半（〜2018年）が年−3.1%、後半が年+21.3%。全期間の数字は、後半の数回の暴落で作られたものです。</div>
+<p>理由は3つ。①反発の大きさ（平均+1.7%）が値動き（日次σ5.8%）に比べて小さすぎる ②−10%の日は連続するので、機械的に拾うと底で何度も被弾する ③短期売買は複利の時間を持てない。<b>規則性はあるが、取りに行くと負ける</b>——これが結論です。</p>
+<nav class="nav"><a href="dca.html"><span class="dir">前の章</span>← 第06章 積立の検証</a><a href="practice.html" style="text-align:right"><span class="dir">次の章</span>第08章 レバレッジ実践 →</a></nav>
+</main>
+</div>
+<footer>
+  <p>本ガイドは分析結果であり、投資助言ではありません。</p>
+  <p style="margin-top:6px">
+    <a href="../index.html">目次</a> ・
+    <a href="../downloads/levetf_report_ja.pdf">一次資料（PDF）</a> ・
+    <a href="../downloads/levetf_onepager_ja_en.pdf">1枚要約</a> ・
+    <a href="../downloads/levetf_slides_ja.pdf">講義スライド</a>
+  </p>
+</footer>
+<button class="to-top" aria-label="ページ先頭へ">↑</button>
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="キーワード（例: 減価、SOX、Calmar）" aria-label="検索語">
+    <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+    <div class="search-hint">Esc で閉じる ・ / でも開けます</div>
+  </div>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

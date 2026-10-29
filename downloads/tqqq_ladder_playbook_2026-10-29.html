@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2倍ラダー売却＋買い下がりラダー 実践ガイド</title>
+<style>
+:root{--ink:#1b2a41;--muted:#5c6270;--line:#dde2ea;--bg:#f7f8fa;--card:#fff;--accent:#1d4ed8;--warn:#b45309;--ok:#047857}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic UI","Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.85}
+.wrap{max-width:1040px;margin:0 auto;padding:36px 22px 90px}
+h1{font-size:27px;line-height:1.35;margin:0 0 6px;letter-spacing:-.01em}
+.meta{color:var(--muted);font-size:13px;margin-bottom:24px}
+h2{font-size:20px;margin:40px 0 10px;border-left:4px solid var(--accent);padding-left:10px}
+h3{font-size:15px;margin:22px 0 6px;color:var(--muted)}
+p{margin:8px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:8px 0 18px;font-size:12.5px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{background:#eef2f7;font-size:11px;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 16px;margin:16px 0}
+.callout.warn{background:#fff7ed;border-color:#fed7aa}
+.callout.ok{background:#ecfdf5;border-color:#a7f3d0}
+.small{font-size:12.5px;color:var(--muted)}
+ul,ol{margin:6px 0 6px 22px;padding:0}
+li{margin:5px 0}
+code{background:#f1f5f9;padding:1px 4px;border-radius:4px;font-size:.92em}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+@media(max-width:780px){table{font-size:11.5px}th,td{padding:5px 4px}}
+@media print{.card{break-inside:avoid}h2{break-after:avoid}tr{break-inside:avoid}}
+</style></head><body><div class="wrap">
+
+<h1>2倍ラダー売却＋買い下がりラダー<br><span style="font-size:17px;font-weight:400;color:#5c6270">修正版・実践ガイド（課税口座・進攻型）</span></h1>
+<div class="meta">初期100万円＋毎月3万円 ・ 3x TQQQ／2x QLD ・ 2026-10-29</div>
+
+<div class="card">
+<h2 style="margin-top:0;border:0;padding:0">修正版の結論</h2>
+<p>売りは「2倍から、以降+10%ごとに30%」。買いは「<b>-50%で1回、前回の買値から-10%下がるたびに追加</b>」の買い下がりラダーです。</p>
+<ul>
+<li><b>直近の実TQQQ 2010-2026では、-50%一括が最良（+38.1%／DD61.0%）。</b>ただしドットコム込みの41年ではDD99.9%。3xは-99%まで落ちるので、-50%で全額買うとその後の下落を食らう。</li>
+<li><b>買い下がり3段（-50%→-55%→-59.5%、1/3ずつ）は、41年で+16.3%／DD86.0%。</b>単発-50%（+16.2%／99.9%）とリターンはほぼ同じで、DDを14pt下げる。直近の実TQQQでは+31.9%／73.8%で、単発に6pt負けるが、3xの全損リスクを下げる。</li>
+<li><b>20%刻みは粗すぎる。</b>-50%→-60%→-68%にすると、41年+16.1%／DD99.8%。10%刻みの方が良い。</li>
+<li><b>4回買いは逆効果。</b>-50/-55/-60.5/-66.6にすると、41年+16.1%／DD99.6%。3回で十分。</li>
+<li><b>2x QLDなら買い下がりが効く。</b>3段で41年+16.2%／DD97.4%、実QLD+20.8%／76.9%。</li>
+</ul>
+</div>
+
+<h2>1. 売りルール（2倍ラダー）</h2>
+<div class="card">
+<ol>
+<li><b>最初の売却：</b>終値が<b>最初の買値の2倍</b>（100→200）に達したら、保有数量の<b>30%</b>を売却。</li>
+<li><b>2回目以降：</b>前回の売却価格から<b>+10%</b>上がったら、30%を売却。</li>
+<li><b>売却ストップ：</b>売却時点の現金比率が<b>20%以上</b>なら見送り。現金が20%を割るまで売らない。</li>
+</ol>
+<div class="callout warn"><b>30%売却＋20%キャップの重要ポイント：</b>2倍で30%売ると、値段が2倍なので現金比率は約30%。20%キャップに当たり、<b>次の+10%売却はできません</b>。次は買い下がりで現金が20%を割ってから。「2倍で1回大きく売り、買い下がりで戻し、次の2倍でまた売る」サイクル型です。+10%刻みを連続で使いたいなら、売却率を5〜10%に下げてください。</div>
+</div>
+
+<h2>2. 買いルール（買い下がりラダー）</h2>
+<div class="card">
+<ol>
+<li><b>1回目：</b>高値（ATH）から<b>-50%</b>下落したら、その時点の現金の<b>1/3</b>を投入。</li>
+<li><b>2回目：</b>1回目の買値から<b>-10%</b>下がったら、現金の<b>1/3</b>を投入。</li>
+<li><b>3回目：</b>2回目の買値から<b>-10%</b>下がったら、残りの<b>1/3</b>を投入。</li>
+<li><b>リセット：</b>価格が新高値（ATH更新）したら、買いラダーをリセット。次の-50%からまた3回。</li>
+</ol>
+<div class="callout"><b>価格の目安（ATH=220の例）：</b>1回目 110（-50%）、2回目 99（110の-10%）、3回目 89.1（99の-10%）。ATH基準の-55%/-60.5%に相当します。<br><b>-20%刻みなら：</b>110 → 88 → 70.4（ATH基準で-50%/-60%/-68%）。ただしバックテストでは10%刻みの方がDDを下げました。</div>
+<div class="callout warn"><b>現金が足りないとき：</b>1回目で現金の1/3を使い、2回目・3回目も同じ額（1回目時点の現金の1/3）を使います。3回で現金はゼロ。4回目以降は買えません。現金が溜まったら、次の新高値後にまた-50%から再開。</div>
+</div>
+
+<h2>3. 比較（税引後、初期100万円＋毎月3万円）</h2>
+<table>
+<thead><tr><th>ルール</th><th>実TQQQ 2010-2026<br>IRR / DD</th><th>合成3x 1985-2026<br>IRR / DD</th><th>特徴</th></tr></thead>
+<tbody>
+<tr><td>B&amp;H 3x</td><td>+38.6% / 81.6%</td><td>+17.4% / 100.0%</td><td>最強のブル、最大のDD</td></tr>
+<tr><td>RH20 t4（前回）</td><td>+32.1% / 70.0%</td><td>+16.7% / 88.6%</td><td>ドットコムに強い。バランス型</td></tr>
+<tr><td>ラダー売り + <b>-50%一括</b></td><td><b>+38.1% / 61.0%</b></td><td>+16.2% / 99.9%</td><td>直近最強。ドットコムは苦手</td></tr>
+<tr><td>ラダー売り + <b>買い下がり3段（-50/-55/-59.5）</b></td><td>+31.9% / 73.8%</td><td><b>+16.3% / 86.0%</b></td><td>ドットコムDDを14pt改善</td></tr>
+<tr><td>ラダー売り + 買い下がり4段（-50/-55/-59.5/-63.6）</td><td>+32.7% / 70.4%</td><td>+16.1% / 99.6%</td><td>4回目は逆効果</td></tr>
+<tr><td>ラダー売り + 買い下がり3段（-20%刻み）</td><td>+32.8% / 71.1%</td><td>+16.1% / 99.8%</td><td>20%刻みは粗い</td></tr>
+<tr><td>2x ラダー + 買い下がり3段</td><td>+20.8% / 76.9%（QLD実）</td><td>+16.2% / 97.4%（2x合成）</td><td>2xの折衷。3xより軽い</td></tr>
+<tr><td>2x RH20 t4（前回）</td><td>—</td><td>+15.6% / 90.6%</td><td>2xの比較基準</td></tr>
+</tbody>
+</table>
+<p class="small">合成はNDX 1x/2x/3xの1985-2026、実ETFはTQQQ 2010-2026／QLD 2006-2026。税20.315%、Tビル現金、終値執行。ラダー売りは「2倍から、+10%ごとに30%、現金20%キャップ」。</p>
+
+<h2>4. ワークドexample（売り30%/+10%/cap20、買い下がり3段）</h2>
+<div class="card">
+<p>初期100万円、価格100で10,000口保有。最初の売却は200（2倍）。ATHが220まで上がった後、-50%から買い下がる例。</p>
+<table>
+<thead><tr><th>Step</th><th>価格</th><th>ATH</th><th>アクション</th><th>口数</th><th>現金</th><th>現金比率</th></tr></thead>
+<tbody>
+<tr><td>開始</td><td class="num">100</td><td class="num">100</td><td>初期100万円を投資</td><td class="num">10,000</td><td class="num">0</td><td class="num">0%</td></tr>
+<tr><td>売却1</td><td class="num">200</td><td class="num">200</td><td>2倍→30%売却</td><td class="num">7,000</td><td class="num">600,000</td><td class="num">30.0%</td></tr>
+<tr><td>+10%</td><td class="num">220</td><td class="num">220</td><td>現金30%≥20%→見送り</td><td class="num">7,000</td><td class="num">600,000</td><td class="num">28.0%</td></tr>
+<tr><td>買い1</td><td class="num">110</td><td class="num">220</td><td>-50%→現金の1/3</td><td class="num">8,818</td><td class="num">400,000</td><td class="num">29.2%</td></tr>
+<tr><td>買い2</td><td class="num">99</td><td class="num">220</td><td>前回買値-10%→1/3</td><td class="num">10,838</td><td class="num">200,000</td><td class="num">15.7%</td></tr>
+<tr><td>買い3</td><td class="num">89.1</td><td class="num">220</td><td>前回買値-10%→1/3</td><td class="num">13,083</td><td class="num">0</td><td class="num">0%</td></tr>
+<tr><td>売却2</td><td class="num">220</td><td class="num">220</td><td>+10%（前回売却200）→30%</td><td class="num">9,158</td><td class="num">863,482</td><td class="num">30.0%</td></tr>
+</tbody>
+</table>
+<p class="small">買い1はATH220の-50%。買い2は買い1の-10%、買い3は買い2の-10%。3回で現金はゼロ。売却2は前回売却200の+10%。数値は概算、税・手数料・為替は別。</p>
+</div>
+
+<h2>5. どのルールを選ぶか</h2>
+<div class="card">
+<ul>
+<li><b>直近の実TQQQの再現を重視：</b>ラダー売り + <b>-50%一括</b>。IRR 38.1%／DD61.0%。B&amp;Hに近いリターンでDDを20pt下げる。ただしドットコム級ではDD99.9%。</li>
+<li><b>3xの全損リスクを下げたい：</b>ラダー売り + <b>買い下がり3段（-50/-55/-60.5、1/3ずつ）</b>。41年 +16.3%／DD86.0%。直近は+31.9%／73.8%で単発に6pt負けるが、DDを14pt下げる。</li>
+<li><b>4回買いたい：</b>やめた方が良い。41年 +16.1%／DD99.6%で、3回より悪化。3xは-99%まで落ちるので、買い増ししても最後は全損に近づく。</li>
+<li><b>20%刻みにしたい：</b>10%刻みよりDDが悪化（+16.1%／99.8%）。10%刻み・3回がベスト。</li>
+<li><b>2xで妥協する：</b>2xラダー + 買い下がり3段。41年 +16.2%／DD97.4%、実QLD +20.8%／76.9%。3xよりリターンは低いが、値動きは軽い。</li>
+<li><b>gradualに売りたい：</b>売却率5〜10%に下げる。30%売却だと1サイクル1回で、+10%刻みは連続発動しません。</li>
+</ul>
+</div>
+
+<h2>6. 毎日のチェックリスト</h2>
+<div class="card">
+<ol>
+<li>終値を見る。ATH、DD、前回売却価格、前回買値を確認。</li>
+<li>未売却なら：終値 ≥ 最初の買値×2 で30%売却。</li>
+<li>売却済みなら：終値 ≥ 前回売却価格×1.10 で30%売却（現金比率&lt;20%のとき）。</li>
+<li>買い1：DD ≤ -50% なら、現金の1/3を投入。</li>
+<li>買い2：買い1の価格×0.90 以下なら、現金の1/3を投入。</li>
+<li>買い3：買い2の価格×0.90 以下なら、残りの1/3を投入。</li>
+<li>新高値（ATH更新）で買いラダーをリセット。月初の最初の営業日なら3万円を追加投資。</li>
+<li>日付、終値、ATH、DD、前回売却価格、前回買値、現金比率、口数、現金、アクションを記録。</li>
+</ol>
+</div>
+
+<h2>7. 注意</h2>
+<div class="card small">
+<ul>
+<li><b>2倍まで待つ間は無防備。</b>2倍になる前に50%下落しても、売却ルールは発動しない。買い戻し原資もない。ドットコムのように2倍前に99%落ちる局面では、ラダーは何もできない。</li>
+<li><b>-50%一括は3xには浅い。</b>3xは-99%まで落ちる。買い下がり3段でもDD86%。それでも3xの全損リスクは残る。</li>
+<li><b>現金が足りないとき：</b>3回で現金ゼロ。4回目以降は買えない。次の新高値後にまた-50%から再開。</li>
+<li><b>税金：</b>売却の都度20.315%。<b>TQQQ/QLDはNISA対象外</b>なので課税口座で運用。売却頻度が高いほどタイミングコストがかかる。</li>
+<li><b>為替：</b>TQQQ/QLDはUSD建て。円建てリターンはUSD/JPYで変わる。ヘッジなし。</li>
+<li><b>バックテスト：</b>合成NDX 1985-2026、実ETF 2010-2026。税20.315%均一、平均取得単価、損失繰越なし。売買コスト・スプレッド・トラッキングエラーは含まない。</li>
+<li>過去の1経路であり、将来の分布ではない。パラメータを多数試しており、最良の行は過剰最適化の可能性がある。</li>
+</ul>
+</div>
+
+<footer>データ：Yahoo Finance 日次（TQQQ 2010-2026、QLD 2006-2026、NDX 1985-2026）、13週Tビル。計算コードはプロジェクトの <code>scripts/build_guide_site.py</code> の合成レバレッジ関数を再利用。本資料は分析結果であり、投資助言ではありません。</footer>
+</div></body></html>

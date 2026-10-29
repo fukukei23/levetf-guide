@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>現金と売買 — レバレッジETF ガイド</title>
+<meta name="description" content="高値で売って下で買うルールを2倍・一括500万円で検証。現金比率・しきい値・頻度を総当たりし、取り崩し期の3xの危険性も示します。">
+<meta property="og:title" content="現金と売買 — レバレッジETF ガイド">
+<meta property="og:description" content="高値で売って下で買うルールを2倍・一括500万円で検証。現金比率・しきい値・頻度を総当たりし、取り崩し期の3xの危険性も示します。">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="reading" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="../index.html">📈 レバレッジETF ガイド</a>
+  <nav class="topnav" aria-label="サイト内">
+    <a href="../index.html">目次</a>
+    <a href="../index.html#downloads">PDF</a>
+    <button id="searchOpen" aria-label="検索を開く" aria-haspopup="dialog" aria-controls="searchModal" aria-expanded="false">🔍 <span class="btn-text">検索</span> <kbd>Ctrl K</kbd></button>
+    <button id="themeToggle" aria-label="テーマ切替">🌓</button>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar"><h2>この章の目次</h2><ol><li><a href="#sec1">まず、2つの方式は別物です</a></li><li><a href="#sec2">現金比率をいくつにするか</a></li><li><a href="#sec3">暴落時に比率を下げて買い増す（諸刃）</a></li><li><a href="#sec4">リバランス頻度</a></li><li><a href="#sec5">何を優先するかで、答えが変わる</a></li><li><a href="#sec6">取り崩し期には3xを使わない</a></li><li><a href="#sec7">わかったこと</a></li></ol><div class="chapter-nav"><a href="tax.html">← 第09章 税金と複利</a><a href="myths.html">第11章 よくある誤解 →</a></div></aside>
+<main id="main">
+
+<h1 class="page">第10章 現金と売買</h1>
+<p class="lead">「上がったら売って現金に、下がったら買い戻す」は本当に効くのか。2倍・一括500万円・月末判断で総当たりしました。</p>
+<h2 id="sec1">まず、2つの方式は別物です<a class="anchor" href="#sec1" aria-hidden="true" tabindex="-1">#</a></h2>
+<p><b>①高値更新のたびに10%売る</b>：売る量が固定なので、上昇が続くと持ち分は 0.9×0.9×…と減り続けます。232回で初期の0.0000000024%。これは「在庫が尽きる」典型です。</p>
+<p><b>②現金比率を25%に保つ</b>：売るのは「比率を戻す分だけ」なので、在庫は尽きません。値上がりすれば少しずつ売り、値下がりすれば買い戻す。この章で扱うのはこちらです。</p>
+<div class="callout">同じ「高値で売る」でも、①は在庫を削る戦略、②は配分を保つ戦略。結果が180度違います。</div>
+<h2 id="sec2">現金比率をいくつにするか<a class="anchor" href="#sec2" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>高値更新時と暴落時（DD20%で−10pt、DD35%で−20pt）にリバランスする方式で、比率だけを変えました。セルは「全期間の倍率／10年の下位10%」。</p>
+<table><thead><tr><th class="">現金比率</th><th class="num">S&amp;P500 倍率</th><th class="num">同 下位10%</th><th class="num">NDX 倍率</th><th class="num">同 下位10%</th><th class="num">SOX 倍率</th><th class="num">同 下位10%</th></tr></thead><tbody><tr><td class="">10%</td><td class="num">1,123倍</td><td class="num">1.06倍</td><td class="num">1,111倍</td><td class="num">0.81倍</td><td class="num">49倍</td><td class="num">0.12倍</td></tr><tr><td class="">20%</td><td class="num">774倍</td><td class="num">1.16倍</td><td class="num">779倍</td><td class="num">0.72倍</td><td class="num">47倍</td><td class="num">0.14倍</td></tr><tr><td class="">25%</td><td class="num">634倍</td><td class="num">1.21倍</td><td class="num">641倍</td><td class="num">0.68倍</td><td class="num">46倍</td><td class="num">0.16倍</td></tr><tr><td class="">30%</td><td class="num">514倍</td><td class="num">1.26倍</td><td class="num">523倍</td><td class="num">0.59倍</td><td class="num">44倍</td><td class="num">0.17倍</td></tr><tr><td class="">50%</td><td class="num">158倍</td><td class="num">1.29倍</td><td class="num">217倍</td><td class="num">0.73倍</td><td class="num">61倍</td><td class="num">0.38倍</td></tr></tbody></table>
+<p>きれいなトレードオフです。S&amp;P500は現金10%で1,123倍、50%なら158倍まで落ちる。代わりに下位10%は1.06→1.29へ上がる。<b>現金は保険で、掛け金を払うほど守られる</b>。</p>
+<p>SOXだけは逆で、現金10%が49倍、50%が61倍と、現金を増やすほど良くなります。値動きが荒すぎて、リバランスの効果が減価を上回るためです。</p>
+<h2 id="sec3">暴落時に比率を下げて買い増す（諸刃）<a class="anchor" href="#sec3" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>「もっと下がったら、現金比率を下げて厚く買う」を試しました。これが指数で真逆になります。</p>
+<table><thead><tr><th class="">ルール（現金25%基準）</th><th class="num">S&amp;P500</th><th class="num">NDX</th><th class="num">SOX</th></tr></thead><tbody><tr><td class="">DD10%で−5pt / DD20%で−10pt</td><td class="num">634倍（Calmar 0.152）</td><td class="num">784倍（Calmar 0.182）</td><td class="num">63倍（Calmar 0.138）</td></tr><tr><td class="">DD10%で−15pt / DD20%で−25pt</td><td class="num">925倍（Calmar 0.153）</td><td class="num">970倍（Calmar 0.186）</td><td class="num">40倍（Calmar 0.121）</td></tr><tr><td class="">DD15%で−5pt / DD30%で−10pt</td><td class="num">526倍（Calmar 0.149）</td><td class="num">713倍（Calmar 0.179）</td><td class="num">71倍（Calmar 0.142）</td></tr><tr><td class="">DD20%で−10pt / DD35%で−20pt</td><td class="num">634倍（Calmar 0.146）</td><td class="num">641倍（Calmar 0.174）</td><td class="num">46倍（Calmar 0.126）</td></tr></tbody></table>
+<p>S&amp;P500とNDXは「早く・大きく下げる」ほど良くなり、SOXは真逆で「浅く・小さく」が最良。<b>落ちるナイフを掴めるかどうかは、指数の性質で決まります</b>。SOXの2000年代のように下げが数年続くと、買い増し資金が尽きます。</p>
+<h2 id="sec4">リバランス頻度<a class="anchor" href="#sec4" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th class="">頻度</th><th class="num">S&amp;P500</th><th class="num">NDX</th><th class="num">SOX</th></tr></thead><tbody><tr><td class="">イベント（高値更新 or DD20%）</td><td class="num">634倍 / 1.21</td><td class="num">641倍 / 0.68</td><td class="num">46倍 / 0.16</td></tr><tr><td class="">毎月</td><td class="num">580倍 / 1.24</td><td class="num">595倍 / 0.63</td><td class="num">45倍 / 0.16</td></tr><tr><td class="">年1回</td><td class="num">478倍 / 1.22</td><td class="num">679倍 / 0.62</td><td class="num">80倍 / 0.12</td></tr></tbody></table>
+<p class="caption">セルは「全期間の倍率 ／ 10年の下位10%」。</p>
+<p>S&amp;P500はイベント駆動が最も良いのに、NDXとSOXは<b>年1回</b>が中央値で最良。頻繁に動くと往復ビンタを食らうからです。ただしSOXの年1回は下位10%が0.12で、イベント駆動の0.16より悪い。伸びと引き換えに、下振れは深くなります。</p>
+<h2 id="sec5">何を優先するかで、答えが変わる<a class="anchor" href="#sec5" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th>優先</th><th>S&amp;P500</th><th>NDX</th><th>SOX</th></tr></thead><tbody>
+<tr><td>伸び（中央値）</td><td>現金10%・イベント</td><td>現金10%・年1回</td><td>現金50%・年1回</td></tr>
+<tr><td>下振れ（下位10%）</td><td>現金40〜50%</td><td>現金50%</td><td>現金50%</td></tr>
+<tr><td>リスク調整（Calmar）</td><td>現金10%</td><td>現金10%</td><td>現金50%</td></tr>
+</tbody></table>
+<div class="callout warn">コスト・税・現金利子はゼロの前提です。年1回リバランスなら売買は年1回ですが、毎月やイベント駆動は回数が増えます。5bp/回でも、頻度の高い方式は年0.1〜0.6%目減りします。</div>
+<div class="callout warn">コスト・税・現金利子はゼロの前提です。年1回リバランスなら売買は年1回ですが、毎月やイベント駆動は回数が増えます。5bp/回でも、頻度の高い方式は年0.1?0.6%目減りします。</div>
+<h2 id="sec6">取り崩し期には3xを使わない<a class="anchor" href="#sec6" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>「保有」ではなく「毎年引き出す」局面では、<a class="term" href="glossary.html#t-vol-decay">ボラティリティ減価</a>とシーケンスリスクが重なります。初期1億円から年3%/5%を毎月引き出し、20年/30年の全開始年で試しました。</p>
+<table><thead><tr><th class="">指数・期間</th><th class="num">1x 3%</th><th class="num">1x 5%</th><th class="num">2x 3%</th><th class="num">2x 5%</th><th class="num">3x 3%</th><th class="num">3x 5%</th></tr></thead><tbody><tr><td class="">S&amp;P 20年</td><td class="num">100% / 48%</td><td class="num">100% / 51%</td><td class="num">97% / 79%</td><td class="num">89% / 86%</td><td class="num">86% / 96%</td><td class="num">70% / 97%</td></tr><tr><td class="">S&amp;P 30年</td><td class="num">100% / 56%</td><td class="num">100% / 56%</td><td class="num">100% / 88%</td><td class="num">96% / 89%</td><td class="num">96% / 98%</td><td class="num">89% / 98%</td></tr><tr><td class="">NDX 20年</td><td class="num">100% / 83%</td><td class="num">95% / 83%</td><td class="num">86% / 99%</td><td class="num">77% / 99%</td><td class="num">59% / 100%</td><td class="num">50% / 100%</td></tr><tr><td class="">NDX 30年</td><td class="num">100% / 83%</td><td class="num">100% / 83%</td><td class="num">100% / 99%</td><td class="num">100% / 99%</td><td class="num">58% / 100%</td><td class="num">50% / 100%</td></tr></tbody></table>
+<p class="caption">セルは「元本が残った窓の割合 / 最大DDの中央値」。初期1億円、毎月定額、名目固定（インフレ調整なし）、税20.315%、コスト+0.5%。S&amp;P 20年は37窓、30年は27窓、NDX 20年は22窓、30年は12窓。</p>
+<p><b>3xはNDX 20年で59%（3%）・50%（5%）、30年でも58%・50%。</b>半分の開始年で、生活費を引き出す前に資産が尽きます。S&amp;P 3xは20年86%/70%、30年96%/89%ですが、DDは96?98%で、実質全損に近い局面を耐える必要があります。</p>
+<p><b>2xはNDX 20年86%/77%、30年100%/100%。</b>生き残ってもDDは99%。S&amp;P 2xは20年97%/89%、30年100%/96%。<b>1xはS&amp;P 100%、NDX 95?100%</b>で、唯一「取り崩しの土台」にできる。</p>
+<div class="callout warn">引き出しは名目固定なので、インフレ調整（毎年3%増）をするとさらに厳しくなります。この表は<b>楽観的な下限</b>です。3xは生活費の源泉にしない。使うなら余剰資金の衛星に限定してください。</div>
+<h2 id="sec7">わかったこと<a class="anchor" href="#sec7" aria-hidden="true" tabindex="-1">#</a></h2>
+<ol>
+<li><b>「高値で定率売却」は負け</b>。在庫が指数関数的に減り、上昇相場の果実を捨てます。</li>
+<li><b>「現金比率一定」は保険</b>。中央値を捨てて下振れを買います。SOXのようにボラが高すぎる資産では、両取りになることも。</li>
+<li><b>暴落時の買い増しは指数次第</b>。S&amp;P500・NDXでは効き、SOXでは毒。万能ではありません。</li>
+<li><b>頻度は思ったより効く</b>。NDX・SOXは年1回が最良。動かすほど、往復ビンタとコストが増えます。</li>
+</ol>
+<nav class="nav"><a href="tax.html"><span class="dir">前の章</span>← 第09章 税金と複利</a><a href="myths.html" style="text-align:right"><span class="dir">次の章</span>第11章 よくある誤解 →</a></nav>
+</main>
+</div>
+<footer>
+  <p>本ガイドは分析結果であり、投資助言ではありません。</p>
+  <p style="margin-top:6px">
+    <a href="../index.html">目次</a> ・
+    <a href="../downloads/levetf_report_ja.pdf">一次資料（PDF）</a> ・
+    <a href="../downloads/levetf_onepager_ja_en.pdf">1枚要約</a> ・
+    <a href="../downloads/levetf_slides_ja.pdf">講義スライド</a>
+  </p>
+</footer>
+<button class="to-top" aria-label="ページ先頭へ">↑</button>
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="キーワード（例: 減価、SOX、Calmar）" aria-label="検索語">
+    <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+    <div class="search-hint">Esc で閉じる ・ / でも開けます</div>
+  </div>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

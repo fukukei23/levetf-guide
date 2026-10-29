@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>用語集 — レバレッジETF ガイド</title>
+<meta name="description" content="レバレッジETFの数式の読み方と、日次リターン・調達コスト・ボラティリティ減価などの用語をやさしく解説します。">
+<meta property="og:title" content="用語集 — レバレッジETF ガイド">
+<meta property="og:description" content="レバレッジETFの数式の読み方と、日次リターン・調達コスト・ボラティリティ減価などの用語をやさしく解説します。">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="reading" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="../index.html">📈 レバレッジETF ガイド</a>
+  <nav class="topnav" aria-label="サイト内">
+    <a href="../index.html">目次</a>
+    <a href="../index.html#downloads">PDF</a>
+    <button id="searchOpen" aria-label="検索を開く" aria-haspopup="dialog" aria-controls="searchModal" aria-expanded="false">🔍 <span class="btn-text">検索</span> <kbd>Ctrl K</kbd></button>
+    <button id="themeToggle" aria-label="テーマ切替">🌓</button>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar"><h2>この章の目次</h2><ol><li><a href="#sec1">この式の読み方</a></li><li><a href="#sec2">用語（12項目）</a></li><li><a href="#sec3">指標の略称</a></li><li><a href="#sec4">レバレッジ固有の用語</a></li></ol><div class="chapter-nav"><a href="conclusion.html">← 第12章 3行の結論</a></div></aside>
+<main id="main">
+
+<h1 class="page">第13章 用語集</h1>
+<p class="lead">本文中で<span class="term">点線が付いた用語</span>から、この章の該当項目に飛べます。式は「英語での読み方」から入ると、記号の意味が頭に入りやすくなります。</p>
+<div id="formula-read"></div>
+<h2 id="sec1">この式の読み方<a class="anchor" href="#sec1" aria-hidden="true" tabindex="-1">#</a></h2>
+<div class="formula">E[log(1+R<sub>L</sub>)] ≈ L·μ<sub>d</sub> - 0.5·L(L-1)·σ<sub>d</sub><sup>2</sup> - (L-1)c<sub>d</sub> - f<sub>d</sub></div>
+<p>「レバレッジL倍の1日分の増え方は、4つの部品からできている」と読む式です。</p>
+<div class="read">
+<p class="lbl">英語で読むと</p>
+<p class="say">E of log of one plus R sub L is approximately equal to: L times mu sub d, minus one half times L times L minus one times sigma sub d squared, minus L minus one times c sub d, minus f sub d.</p>
+<p class="lbl">日本語で読むと</p>
+<p>「イー・オブ・ログ、（1＋アール・エル）はほぼ等しい：エル×ミュー・ディー、引く 0.5×エル×(エル−1)×シグマ・ディーの2乗、引く（エル−1）×シー・ディー、引く エフ・ディー」</p>
+</div>
+<h3>記号の意味</h3>
+<table><thead><tr><th class="">記号</th><th class="">英語での読み</th><th class="">意味</th></tr></thead><tbody><tr><td class=""><code>E[·]</code></td><td class="">expectation of …</td><td class="">期待値。平均するとどうなるか</td></tr><tr><td class=""><code>log</code></td><td class="">natural log（ログ）</td><td class="">自然対数。掛け算を足し算に変える</td></tr><tr><td class=""><code>1+R<sub>L</sub></code></td><td class="">one plus R sub L</td><td class="">レバレッジL倍の、1日分の増え方</td></tr><tr><td class=""><code>≈</code></td><td class="">approximately equal to</td><td class="">ほぼ等しい（近似）</td></tr><tr><td class=""><code>L</code></td><td class="">L</td><td class="">レバレッジ倍率（1・2・3）</td></tr><tr><td class=""><code>μ<sub>d</sub></code></td><td class="">mu sub d</td><td class="">日次ログリターンの平均。1倍のCAGRにほぼ等しい</td></tr><tr><td class=""><code>σ<sub>d</sub></code></td><td class="">sigma sub d</td><td class="">日次対数リターンの標準偏差（ボラティリティ）</td></tr><tr><td class=""><code>σ<sub>d</sub><sup>2</sup></code></td><td class="">sigma sub d squared</td><td class="">分散。標準偏差の2乗</td></tr><tr><td class=""><code>c<sub>d</sub></code></td><td class="">c sub d</td><td class="">日次調達コスト（年利 ÷ 252）</td></tr><tr><td class=""><code>f<sub>d</sub></code></td><td class="">f sub d</td><td class="">日次信託報酬（年率 ÷ 252）</td></tr></tbody></table>
+<h3>4つの部品に分けて読む</h3>
+<table><thead><tr><th class="">項</th><th class="">名前</th><th class="">やさしい言い方</th></tr></thead><tbody><tr><td class=""><code>L·μ<sub>d</sub></code></td><td class="">増やす力</td><td class="">指数が1日あたり平均でどれだけ伸びるかを、L倍する</td></tr><tr><td class=""><code>−0.5·L(L−1)·σ<sub>d</sub><sup>2</sup></code></td><td class="">削る力（減価）</td><td class="">値動きの荒さの2乗に比例して目減りする</td></tr><tr><td class=""><code>−(L−1)c<sub>d</sub></code></td><td class="">借りた分の利息</td><td class="">3倍なら2人分の利息を払う</td></tr><tr><td class=""><code>−f<sub>d</sub></code></td><td class="">手数料</td><td class="">保有しているだけで引かれる</td></tr></tbody></table>
+<h3>なぜ 0.5·L(L−1) になるのか</h3>
+<ol>
+<li>1倍の複利は <code>μ<sub>d</sub></code> そのもの（これが定義）。</li>
+<li>ふつうの平均に戻すと <code>E[r] ≈ μ<sub>d</sub> + σ<sub>d</sub><sup>2</sup>/2</code>。荒いほど、算術平均のほうが大きく見える。</li>
+<li>L倍して対数を取ると <code>L·E[r] − (L<sup>2</sup>/2)σ<sub>d</sub><sup>2</sup></code>。整理すると <code>L·μ<sub>d</sub> − 0.5·L(L−1)·σ<sub>d</sub><sup>2</sup></code>。</li>
+</ol>
+<p>つまり減価の正体は、<b>「増えるときはL倍、減るときもL倍」を掛け算で積むと、行き帰りの差が残る</b>ということです。</p>
+<h3>実データで確かめる（すべて年率・3倍）</h3>
+<table><thead><tr><th class="">指数</th><th class="num">μ（1倍CAGR）</th><th class="num">σ（実現）</th><th class="num">式の予測</th><th class="num">実測</th></tr></thead><tbody><tr><td class="">S&amp;P500</td><td class="num">10.9%</td><td class="num">17.1%</td><td class="num">+13.3%</td><td class="num">+13.4%</td></tr><tr><td class="">ナスダック100</td><td class="num">15.3%</td><td class="num">25.8%</td><td class="num">+16.7%</td><td class="num">+17.3%</td></tr><tr><td class="">半導体（SOX）</td><td class="num">15.9%</td><td class="num">37.9%</td><td class="num">-4.7%</td><td class="num">-3.6%</td></tr></tbody></table>
+<p class="formula-note">調達コストは各指数の期間平均（S&amp;P500 4.4%・NDX 3.1%・SOX 2.5%）・信託報酬0.95%で固定した概算。実際のコストは年ごとに変わるため、±1〜2pt程度ずれます。</p>
+<h2 id="sec2">用語（12項目）<a class="anchor" href="#sec2" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul class="gl-index"><li><a href="#t-daily-return">日次リターン</a></li><li><a href="#t-leverage">レバレッジ</a></li><li><a href="#t-financing">日次調達コスト</a></li><li><a href="#t-fee">日次信託報酬</a></li><li><a href="#t-vol-decay">ボラティリティ減価</a></li><li><a href="#t-normal">正規分布</a></li><li><a href="#t-elog">期待対数リターン</a></li><li><a href="#t-approx">近似</a></li><li><a href="#t-daily-reset">daily-reset</a></li><li><a href="#t-breakeven">ブレークイーブン・ボラティリティ</a></li><li><a href="#t-ruin">破産閾値</a></li><li><a href="#t-synthetic">合成レバレッジ</a></li></ul>
+<article class="gl" id="t-daily-return">
+<h3>1. 日次リターン<span class="en">daily return</span><a class="anchor" href="#t-daily-return" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：デイリー・リターン</p>
+<p class="gl-one">ひとことで：1日で何％動いたか。</p>
+<p>前日の終値から当日の終値までの変化率で、<code>(今日の終値 ÷ 前日の終値) − 1</code> と計算します。式では <b>R</b>（または r）と書きます。</p><p>ポイントは「1年で+10%」ではなく「1日ごとに区切る」こと。レバレッジETFは、この1日単位の変化をL倍する約束だからです。</p>
+<p class="gl-en"><b>English:</b> The percentage change from one trading day's close to the next: today's close divided by yesterday's close, minus one.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a></p>
+</article>
+<article class="gl" id="t-leverage">
+<h3>2. レバレッジ<span class="en">leverage</span><a class="anchor" href="#t-leverage" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：レバレッジ</p>
+<p class="gl-one">ひとことで：指数の動きを何倍にするか、という倍率。</p>
+<p>式では <b>L</b> と書き、1倍・2倍・3倍の「倍率」そのものです。重要なのは<b>かかる相手が1日の変化だけ</b>という点で、長期の騰落率を3倍にするものではありません。</p><p>だから「10年で3倍」にはならず、値動きの荒さに応じて結果が変わります。なお本文では「最終倍率」の意味でも「倍率」を使います（評価額 ÷ 投資額）。レバレッジ倍率とは別物です。</p>
+<p class="gl-en"><b>English:</b> A multiplier applied to an index's daily return, not to its multi-year return.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a> ／ <a href="threshold.html">第02章 判定式</a></p>
+</article>
+<article class="gl" id="t-financing">
+<h3>3. 日次調達コスト<span class="en">daily financing cost</span><a class="anchor" href="#t-financing" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：デイリー・ファイナンシング・コスト</p>
+<p class="gl-one">ひとことで：借りたお金につく、1日分の利息。</p>
+<p>2倍なら元手の1倍分、3倍なら2倍分を借ります。その利息を日割りにしたものが <b>c<sub>d</sub></b> です。年利4.5%なら 4.5% ÷ 252日 ≒ 0.018%/日。</p><p>式では <b>(L−1)×c<sub>d</sub></b> として効きます。3倍なら「2人分の利息」を払う、という意味です。</p>
+<p class="gl-en"><b>English:</b> The interest paid on the borrowed portion of a leveraged position, prorated to one day.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a> ／ <a href="threshold.html">第02章 判定式</a></p>
+</article>
+<article class="gl" id="t-fee">
+<h3>4. 日次信託報酬<span class="en">daily expense ratio</span><a class="anchor" href="#t-fee" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：デイリー・エクスペンス・レシオ</p>
+<p class="gl-one">ひとことで：持っているだけでかかる、1日分の手数料。</p>
+<p>年率0.95%なら 0.95% ÷ 252日 ≒ 0.0038%/日。式では <b>f<sub>d</sub></b> です。</p><p>調達コストとの違いは、<b>レバレッジ倍率がかからない</b>こと。借入額ではなく純資産全体にかかるので、1倍でも3倍でも同じ率です。</p>
+<p class="gl-en"><b>English:</b> The fund's annual management fee, accrued daily and deducted from net asset value.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a></p>
+</article>
+<article class="gl" id="t-vol-decay">
+<h3>5. ボラティリティ減価<span class="en">volatility decay</span><a class="anchor" href="#t-vol-decay" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：ヴォラティリティ・ディケイ</p>
+<p class="gl-one">ひとことで：値動きが荒いほど、複利の結果が目減りする現象。</p>
+<p>100が+10%で110、次に−9.09%で100。1倍は元通りです。同じ値動きを3倍でやると、+30%で130、−27.3%で94.5。<b>同じ場所に戻ったのに5.5%減っています。</b></p><p>式の第2項 <b>−0.5·L(L−1)·σ<sub>d</sub><sup>2</sup></b> がこれ。L=3なら係数は0.5×3×2＝3で、ボラティリティの<b>2乗</b>に比例します。荒い相場では急に効いてきます。</p>
+<p class="gl-en"><b>English:</b> The drag on compounded returns caused by rebalancing to a fixed multiple every day in a volatile market.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a> ／ <a href="threshold.html">第02章 判定式</a></p>
+</article>
+<article class="gl" id="t-normal">
+<h3>6. 正規分布<span class="en">normal distribution</span><a class="anchor" href="#t-normal" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：ノーマル・ディストリビューション</p>
+<p class="gl-one">ひとことで：平均のまわりに山型にばらつく、という仮定。</p>
+<p>日次リターンがこの形に従うと<b>仮定</b>すると、式をきれいに展開できます。ただし現実の市場は裾が重く（極端な下落が増える）、この仮定から外れます。</p><p>式は「傾向をつかむ道具」であって、将来の金額を当てる計算機ではありません。</p>
+<p class="gl-en"><b>English:</b> A bell-shaped model of returns, used here only to make the algebra tractable, not because markets actually follow it.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a></p>
+</article>
+<article class="gl" id="t-elog">
+<h3>7. 期待対数リターン<span class="en">expected log return</span><a class="anchor" href="#t-elog" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：エクスペクテッド・ログ・リターン</p>
+<p class="gl-one">ひとことで：掛け算で積み上がるほうの平均。複利の実力。</p>
+<p><b>E[log(1+R)]</b> と書きます。ふつうの平均（算術平均）ではなく、対数を取った平均です。ボラティリティが高いほど算術平均より小さくなります。</p><p>長期の資産曲線がどうなるかは、こちらで決まります。CAGRとほぼ同じ意味です。</p>
+<p class="gl-en"><b>English:</b> The average of log(1+r); it is what actually compounds over time and is always below the arithmetic mean when volatility is positive.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a></p>
+</article>
+<article class="gl" id="t-approx">
+<h3>8. 近似<span class="en">approximation (Taylor expansion)</span><a class="anchor" href="#t-approx" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：アプロクシメーション</p>
+<p class="gl-one">ひとことで：複雑な式を、扱いやすい形に置き換えること。</p>
+<p>ここで使うのは <b>log(1+x) ≈ x − x<sup>2</sup>/2</b>（xが小さいとき）。1日の変動は数%なので、誤差は無視できる範囲です。</p><p>「≈」は「ほぼ等しい」。等式ではないので、ボラティリティが極端に大きい時期は外れます。</p>
+<p class="gl-en"><b>English:</b> Replacing a function with a simpler one that stays close enough; here the first-order Taylor expansion log(1+x) ≈ x − x²/2.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a></p>
+</article>
+<article class="gl" id="t-daily-reset">
+<h3>9. daily-reset<span class="en">daily reset</span><a class="anchor" href="#t-daily-reset" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：デイリー・リセット</p>
+<p class="gl-one">ひとことで：毎日、レバレッジを目標値に戻す運用方式。</p>
+<p>前日の倍率を保つのではなく、<b>毎日の終値で倍率をリセット</b>します。だから「1日の変化のL倍」が積み上がる形になり、長期の値動きは指数のL倍になりません。</p><p>日本の毎日レバレッジ型ETFや、TQQQ・SOXLなどがこの方式です。</p>
+<p class="gl-en"><b>English:</b> Rebalancing the fund's exposure back to the target multiple at every close, so returns compound daily rather than tracking the index's multi-year move.</p>
+<p class="gl-where">出てくる章：<a href="mechanism.html">第01章 仕組み</a></p>
+</article>
+<article class="gl" id="t-breakeven">
+<h3>10. ブレークイーブン・ボラティリティ<span class="en">break-even volatility</span><a class="anchor" href="#t-breakeven" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：ブレイクイーブン・ヴォラティビティ</p>
+<p class="gl-one">ひとことで：レバレッジが1倍に勝てなくなるボラの水準。</p>
+<p>期待対数リターンが1倍を下回る条件を解くと <b>σ* = √(2μ ÷ L)</b>。μは1xの対数成長率 ln(1+CAGR)。μ=10%・3倍なら25.8%です。</p><p>算術平均 μ<sub>a</sub> で書くと <b>σ* = √(2μ<sub>a</sub> ÷ (L+1))</b>。μ<sub>a</sub>=10%・3倍なら22.4%。同じ条件の別表記で、定義を混ぜると値がずれます。</p><p>実際のボラがこれを上回っていれば、長期では負けます。<a href="threshold.html">第02章</a>の表で3指数を判定しています。</p>
+<p class="gl-en"><b>English:</b> The volatility level above which a leveraged position is expected to underperform the unleveraged index.</p>
+<p class="gl-where">出てくる章：<a href="threshold.html">第02章 判定式</a></p>
+</article>
+<article class="gl" id="t-ruin">
+<h3>11. 破産閾値<span class="en">ruin threshold</span><a class="anchor" href="#t-ruin" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：ルイン・スレッシュホールド</p>
+<p class="gl-one">ひとことで：単日で元資産が 1/L 下がると、理論上ゼロになる水準。</p>
+<p>3倍なら −33.3%、2倍なら −50% の1日下落で、元手が吹き飛びます。実際には取引所のサーキットブレーカーやファンドの閉鎖が先に来ますが、式の上ではこの線が存在します。</p>
+<p class="gl-en"><b>English:</b> The single-day index drop (1/L) at which a leveraged position would theoretically be wiped out.</p>
+<p class="gl-where">出てくる章：<a href="threshold.html">第02章 判定式</a></p>
+</article>
+<article class="gl" id="t-synthetic">
+<h3>12. 合成レバレッジ<span class="en">synthetic leverage series</span><a class="anchor" href="#t-synthetic" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="gl-read">読み：シンセティック・レバレッジ</p>
+<p class="gl-one">ひとことで：指数の日次リターンから計算で作った、仮想のレバレッジ系列。</p>
+<p>レバレッジETFの歴史は短いため、長期の検証では、指数の日次リターンをL倍して手数料と金利を引く<b>計算上の系列</b>を使っています。</p><p>実際のETFとの差は、スプレッド・出来高・トラッキングエラーです。本ガイドでは、実在ETFでの検証も別途行っています。</p>
+<p class="gl-en"><b>English:</b> A simulated leveraged series built from an index's daily returns, used where no real fund history exists.</p>
+<p class="gl-where">出てくる章：<a href="sp500.html">第03章 S&amp;P500</a></p>
+</article>
+<h2 id="sec3">指標の略称<a class="anchor" href="#sec3" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th class="">略称</th><th class="">正式名称（英語）</th><th class="">日本語</th><th class="">読み方</th></tr></thead><tbody><tr><td class="">CAGR</td><td class="">Compound Annual Growth Rate</td><td class="">年平均成長率</td><td class="">複利で年何%伸びたか</td></tr><tr><td class="">最大DD</td><td class="">Maximum Drawdown</td><td class="">最大ドローダウン</td><td class="">ピークからの最大下落率</td></tr><tr><td class="">Sharpe</td><td class="">Sharpe Ratio</td><td class="">シャープレシオ</td><td class="">リスク1単位あたりの超過リターン</td></tr><tr><td class="">Sortino</td><td class="">Sortino Ratio</td><td class="">ソルティノレシオ</td><td class="">下振れだけをリスクと数える版</td></tr><tr><td class="">Calmar</td><td class="">Calmar Ratio</td><td class="">カルマーレシオ</td><td class="">CAGR ÷ 最大DD</td></tr><tr><td class="">Ulcer</td><td class="">Ulcer Index</td><td class="">アルサー指数</td><td class="">DDの深さ×持続時間</td></tr><tr><td class="">IRR</td><td class="">Internal Rate of Return</td><td class="">内部収益率</td><td class="">積立の実効利回り</td></tr><tr><td class="">CPI</td><td class="">Consumer Price Index</td><td class="">消費者物価指数</td><td class="">実質リターンの計算に使用</td></tr><tr><td class="">ETF</td><td class="">Exchange Traded Fund</td><td class="">上場投資信託</td><td class="">daily-reset型は毎日リバランス</td></tr><tr><td class="">^IRX</td><td class="">CBOE 13-Week T-Bill Index</td><td class="">13週Tビル金利</td><td class="">調達金利の代理変数</td></tr></tbody></table>
+<h2 id="sec4">レバレッジ固有の用語<a class="anchor" href="#sec4" aria-hidden="true" tabindex="-1">#</a></h2>
+<table><thead><tr><th class="">用語</th><th class="">意味</th></tr></thead><tbody><tr><td class=""><a href="#t-daily-reset">daily-reset</a></td><td class="">毎日レバレッジを目標値に戻す運用方式</td></tr><tr><td class=""><a href="#t-vol-decay">ボラティリティ減価</a></td><td class="">値動きの荒さで長期リターンが目減りする現象</td></tr><tr><td class=""><a href="#t-breakeven">ブレークイーブン</a></td><td class="">レバレッジが1倍に勝てなくなるボラの水準</td></tr><tr><td class=""><a href="#t-ruin">破産閾値</a></td><td class="">単日で元資産が 1/L 下がるとゼロになる</td></tr><tr><td class=""><a href="#t-synthetic">合成レバレッジ</a></td><td class="">指数の日次リターンから計算で作った仮想系列</td></tr></tbody></table>
+<nav class="nav"><a href="conclusion.html"><span class="dir">前の章</span>← 第12章 3行の結論</a><span></span></nav>
+</main>
+</div>
+<footer>
+  <p>本ガイドは分析結果であり、投資助言ではありません。</p>
+  <p style="margin-top:6px">
+    <a href="../index.html">目次</a> ・
+    <a href="../downloads/levetf_report_ja.pdf">一次資料（PDF）</a> ・
+    <a href="../downloads/levetf_onepager_ja_en.pdf">1枚要約</a> ・
+    <a href="../downloads/levetf_slides_ja.pdf">講義スライド</a>
+  </p>
+</footer>
+<button class="to-top" aria-label="ページ先頭へ">↑</button>
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="キーワード（例: 減価、SOX、Calmar）" aria-label="検索語">
+    <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+    <div class="search-hint">Esc で閉じる ・ / でも開けます</div>
+  </div>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

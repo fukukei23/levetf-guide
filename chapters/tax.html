@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>税金と複利 — レバレッジETF ガイド</title>
+<meta name="description" content="売却のタイミングで複利がどう変わるか。課税口座でB&amp;Hが強い理由を分解します。">
+<meta property="og:title" content="税金と複利 — レバレッジETF ガイド">
+<meta property="og:description" content="売却のタイミングで複利がどう変わるか。課税口座でB&amp;Hが強い理由を分解します。">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="reading" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="../index.html">📈 レバレッジETF ガイド</a>
+  <nav class="topnav" aria-label="サイト内">
+    <a href="../index.html">目次</a>
+    <a href="../index.html#downloads">PDF</a>
+    <button id="searchOpen" aria-label="検索を開く" aria-haspopup="dialog" aria-controls="searchModal" aria-expanded="false">🔍 <span class="btn-text">検索</span> <kbd>Ctrl K</kbd></button>
+    <button id="themeToggle" aria-label="テーマ切替">🌓</button>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar"><h2>この章の目次</h2><ol><li><a href="#sec1">結論：途中で払うと、その分が複利に回らない</a></li><li><a href="#sec2">1Mが2倍→さらに2倍になる例</a></li><li><a href="#sec3">課税口座とNISA</a></li><li><a href="#sec4">為替：円建てリターンは換算レートで決まる</a></li><li><a href="#sec5">実務への示唆</a></li><li><a href="#sec6">注意</a></li></ol><div class="chapter-nav"><a href="practice.html">← 第08章 レバレッジ実践</a><a href="cash.html">第10章 現金と売買 →</a></div></aside>
+<main id="main">
+
+<h1 class="page">第09章 税金と複利</h1>
+<p class="lead">「どうせ最後に売るなら同じ」ではありません。税金は「総額」より「タイミング」で効きます。</p>
+<div class="callout warn"><b>前提：</b>2x/3xのレバレッジETFは<b>NISA対象外</b>です。本ガイドの2x/3x比較は<b>課税口座の税引後</b>。NISAで使えるのは1xのS&amp;P500・ナスダック100です。</div>
+<h2 id="sec1">結論：途中で払うと、その分が複利に回らない<a class="anchor" href="#sec1" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>B&amp;Hは最後まで税金を払わず、払うはずだった税金も複利で増えます。途中で売る戦略は、その時点で税金を払うため、複利の元本が減ります。これが「途中で引かれる」の正体です。</p>
+<table><thead><tr><th class="">戦略</th><th class="num">税前最終</th><th class="num">税引後最終</th><th class="num">差</th><th class="num">実際に払った税</th><th class="num">複利機会の損失</th></tr></thead><tbody><tr><td class="">B&amp;H</td><td class="num">618.1M</td><td class="num">493.9M</td><td class="num">124.1M</td><td class="num">124.1M</td><td class="num">0.0M</td></tr><tr><td class="">RH10 20% single</td><td class="num">679.0M</td><td class="num">339.0M</td><td class="num">340.0M</td><td class="num">84.3M</td><td class="num">255.7M</td></tr><tr><td class="">RH20 30% t3</td><td class="num">458.8M</td><td class="num">254.1M</td><td class="num">204.8M</td><td class="num">62.0M</td><td class="num">142.8M</td></tr></tbody></table>
+<p class="caption">実TQQQ 2010-2026、初期100万円＋毎月3万円、税20.315%。「実際に払った税」は売却時＋最終売却時の合計。「複利機会の損失」は、税前最終と税引後最終の差から実際の税額を引いた残り。</p>
+<p>RH10の例：税前679M、税引後339M。差の340Mのうち、<b>実際に払った税金は84Mだけ</b>。残りの256Mは「税金を先に払ったことで失った複利」です。税額はB&amp;H（124M）より少ないのに、最終額はB&amp;H（494M）より低い。</p>
+<h2 id="sec2">1Mが2倍→さらに2倍になる例<a class="anchor" href="#sec2" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>1Mが2倍→さらに2倍になる場合で考えます。</p>
+<ul>
+<li><b>途中で売って買い直す：</b>2Mで売却、税200kを払って1.8Mで再投資。もう一度2倍で3.6M。最後に売ると税360k、手取り3.24M。</li>
+<li><b>最後まで持つ：</b>4M。最後に売ると税600k、手取り3.4M。</li>
+</ul>
+<p>途中で売った方は税額が40k少ないのに、手取りは160k少ない。これが税金のタイミングコストです。TQQQのように年40%で複利する資産では、税を10年早く払うと、その1円は理論上約29円（1.4^10）の将来価値を失います。</p>
+<h2 id="sec3">課税口座とNISA<a class="anchor" href="#sec3" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul>
+<li><b>課税口座：</b>売却の都度20.315%。売買頻度が高いほど、税金のタイミングコストがかかる。前章の3xラダーも、税引後ではB&amp;Hに劣る場合がある。</li>
+<li><b>NISA：</b>1xのS&amp;P500・ナスダック100のETF/投信はNISA対象。ただし<b>2x/3xのレバレッジETFはNISA対象外</b>です。したがって、本ガイドの2x/3x比較は<b>課税口座の税引後</b>が基本。NISAの非課税メリットは1xにのみ当てはまります。</li>
+<li><b>損失繰越：</b>3年。損出しで課税を減らせるが、複利のタイミングコストは消えない。</li>
+<li><b>為替：</b>TQQQ/QLD/SPXLはUSD建て。円建てリターンはUSD/JPYで変わる。ヘッジなし。</li>
+</ul>
+<h3>20年保有した場合の税引後最終額</h3>
+<p>初期1000万円を20年保有し、最後に売却した場合。NISAは非課税、課税口座は20.315%。分配金・途中売却はない。</p>
+<table><thead><tr><th class="">資産</th><th class="num">20年CAGR</th><th class="num">NISA</th><th class="num">課税口座</th><th class="num">NISAの節税</th></tr></thead><tbody><tr><td class="">1x S&amp;P500</td><td class="num">+10.9%</td><td class="num">79.3M</td><td class="num">65.2M</td><td class="num">+14.1M</td></tr><tr><td class="">1x ナスダック100</td><td class="num">+15.3%</td><td class="num">172.1M</td><td class="num">139.2M</td><td class="num">+32.9M</td></tr><tr><td class="">2x S&amp;P500</td><td class="num">+12.9%</td><td class="num">—</td><td class="num">91.6M</td><td class="num">—</td></tr><tr><td class="">3x S&amp;P500</td><td class="num">+12.2%</td><td class="num">—</td><td class="num">81.1M</td><td class="num">—</td></tr><tr><td class="">2x ナスダック100</td><td class="num">+19.2%</td><td class="num">—</td><td class="num">269.7M</td><td class="num">—</td></tr><tr><td class="">3x ナスダック100</td><td class="num">+16.0%</td><td class="num">—</td><td class="num">156.8M</td><td class="num">—</td></tr></tbody></table>
+<p class="caption">2x/3xはNISA対象外なので「—」。実際は分配金課税・リバランス税があるため、NISAのメリットはこの表より大きい。NISAの年間枠・生涯枠は別途。</p>
+<ul>
+<li><b>1x S&amp;P：</b>NISA 79.3M vs 課税65.2Mで、約14Mの差。1x NDXは172.1M vs 139.2Mで、約33Mの差。</li>
+<li><b>2x/3xはNISA不可：</b>課税口座の税引後でしか比較できない。2x NDXは269.7M、3x NDXは156.8M。3xは2xよりCAGRが低く、税引後でも劣る。ただし2xのDDは99%で、金額だけでは比較できない。</li>
+<li><b>NISAは「1xの成長」に使う：</b>2x/3xをNISAに入れることはできない。NISA枠は1x S&amp;P/NDXを優先し、2x/3xは課税口座で長期保有・売却頻度を下げる。</li>
+</ul>
+<h2 id="sec4">為替：円建てリターンは換算レートで決まる<a class="anchor" href="#sec4" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>TQQQ/QLD/SPXLはUSD建てです。円建てのリターンは、USD建ての成長率だけでなく、<b>開始時と終了時のUSD/JPY</b>で決まります。途中の為替変動は、売却しない限り確定しません。</p>
+<table><thead><tr><th class="">USD建てCAGR</th><th class="num">円高 -20%</th><th class="num">為替不変</th><th class="num">円安 +20%</th></tr></thead><tbody><tr><td class="">1x S&amp;P500 +10.9%</td><td class="num">+8.5%</td><td class="num">+10.9%</td><td class="num">+13.0%</td></tr><tr><td class="">2x S&amp;P500 +12.9%</td><td class="num">+10.4%</td><td class="num">+12.9%</td><td class="num">+14.9%</td></tr><tr><td class="">3x S&amp;P500 +12.2%</td><td class="num">+9.7%</td><td class="num">+12.2%</td><td class="num">+14.2%</td></tr><tr><td class="">1x ナスダック100 +15.3%</td><td class="num">+12.7%</td><td class="num">+15.3%</td><td class="num">+17.4%</td></tr><tr><td class="">2x ナスダック100 +19.2%</td><td class="num">+16.6%</td><td class="num">+19.2%</td><td class="num">+21.4%</td></tr><tr><td class="">3x ナスダック100 +16.0%</td><td class="num">+13.4%</td><td class="num">+16.0%</td><td class="num">+18.1%</td></tr></tbody></table>
+<p class="caption">10年保有、USD建てCAGRを円建てに換算。FXは開始→終了の変化率で、途中の変動は含まない。円建て最終額＝USD建て最終額×(1+FX)。</p>
+<p><b>円高20%で、1x S&amp;Pは10.9%→8.5%、3x NDXは16.0%→13.4%。</b>年率では2pt強ですが、<b>終了時の元本は20%減ります</b>。10年で2.2ptの差は、複利では約20%の差です。長期ほど年率影響は小さくなりますが、終了時の水準リスクは消えません。</p>
+<ul>
+<li><b>為替は「最後の換算」で決まる：</b>途中で円高になっても、売却しなければ確定しない。逆に、売却時に円高なら、その時点の円建て額が減る。</li>
+<li><b>3xのUSD建てCAGRを、そのまま円建ての期待リターンにしない：</b>3x NDXの16.0%は、円高20%で13.4%になる。リターンの差より、為替の振れの方が大きい年もある。</li>
+<li><b>円建てで生活費を払うなら、為替は無視できない：</b>退職後の取り崩しでは、円高が生活費の目減りに直結する。外貨建て資産の比率を上げるほど、為替リスクも上がる。</li>
+<li><b>ヘッジはコストと裏表：</b>為替ヘッジ付きETFは、ヘッジコスト（金利差）がかかる。本ガイドの数値はヘッジなし。</li>
+</ul>
+<h2 id="sec5">実務への示唆<a class="anchor" href="#sec5" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul>
+<li>課税口座なら、売買ルールを入れるほど税引後リターンが下がる。B&amp;Hの「税金繰延」は強力。</li>
+<li>NISAで使えるのは1xのインデックス。2x/3xのラダー/RH10は課税口座で、税引後の数値を見る。</li>
+<li>売却頻度を下げる、損出しを活用する。1xはNISA、2x/3xは課税口座で税引後を見る。この3つが税引後の実務。</li>
+</ul>
+<h2 id="sec6">注意<a class="anchor" href="#sec6" aria-hidden="true" tabindex="-1">#</a></h2>
+<ul>
+<li>税は20.315%均一、平均取得単価、最終売却課税、損失繰越なしで計算。実際の税負担は口座・所得・為替で変わる。</li>
+<li>配当・外国税額控除・住民税の細かい扱いは含まない。本ガイドは分析結果であり、税務助言ではありません。</li>
+</ul>
+<nav class="nav"><a href="practice.html"><span class="dir">前の章</span>← 第08章 レバレッジ実践</a><a href="cash.html" style="text-align:right"><span class="dir">次の章</span>第10章 現金と売買 →</a></nav>
+</main>
+</div>
+<footer>
+  <p>本ガイドは分析結果であり、投資助言ではありません。</p>
+  <p style="margin-top:6px">
+    <a href="../index.html">目次</a> ・
+    <a href="../downloads/levetf_report_ja.pdf">一次資料（PDF）</a> ・
+    <a href="../downloads/levetf_onepager_ja_en.pdf">1枚要約</a> ・
+    <a href="../downloads/levetf_slides_ja.pdf">講義スライド</a>
+  </p>
+</footer>
+<button class="to-top" aria-label="ページ先頭へ">↑</button>
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="キーワード（例: 減価、SOX、Calmar）" aria-label="検索語">
+    <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+    <div class="search-hint">Esc で閉じる ・ / でも開けます</div>
+  </div>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>
